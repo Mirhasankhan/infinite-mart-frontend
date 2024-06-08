@@ -9,7 +9,6 @@ const Home = () => {
   console.log(email);
   return (
     <div>
-      {email}
       <Categories></Categories>
       <BannerSlide></BannerSlide>
       <FlashSale></FlashSale>
