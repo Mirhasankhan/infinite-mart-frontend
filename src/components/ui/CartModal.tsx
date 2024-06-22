@@ -1,9 +1,15 @@
 import { Button } from "antd";
-import { useCartsQuery } from "../../redux/features/cart/cartManagement.api";
+import {
+  useCartsQuery,
+  useDeleteCartMutation,
+} from "../../redux/features/cart/cartManagement.api";
 import { TCart } from "../../types/cart.type";
 import { RiDeleteBin6Line } from "react-icons/ri";
 import shopping from "../../assets/images/shopping.jpeg";
 import { Link } from "react-router-dom";
+import { useAppSelector } from "../../redux/hooks";
+import { useCurrentUser } from "../../redux/features/auth/authSlice";
+import useUpdateCartQuantity from "../../utils/updateQuantity";
 
 interface CartProps {
   isOpen: boolean;
@@ -11,7 +17,15 @@ interface CartProps {
 }
 
 const CartModal = ({ isOpen, setIsOpen }: CartProps) => {
-  const { data: cartData } = useCartsQuery("buy2@gmail.com");
+  const { email } = useAppSelector(useCurrentUser);
+  const { data: cartData } = useCartsQuery(email);
+  const { handleUpdateQuantity } = useUpdateCartQuantity();
+  const [deleteCart] = useDeleteCartMutation();
+
+  const handleDeleteCart = (id: string) => {
+    deleteCart(id);
+  };
+
   return (
     <div>
       {isOpen && (
@@ -27,23 +41,35 @@ const CartModal = ({ isOpen, setIsOpen }: CartProps) => {
                     <div className="col-span-1">
                       <img
                         className="h-12 w-12 border"
-                        src={cart.image}
+                        src={cart.image.imageUrl}
                         alt=""
                       />
                     </div>
                     <div className="col-span-2">
                       <h1>{cart.productName}</h1>
                       <div className="flex items-center gap-2">
-                        <div className="flex gap-3 border px-3 py-1 rounded-lg">
-                          <button>-</button>
-                          <h1>{1}</h1>
-                          <button>+</button>
+                        <div className="flex gap-3 border px-2 py-1 rounded-lg">
+                          <button
+                            onClick={() => handleUpdateQuantity(cart, false)}
+                            className="bg-gray-400 rounded-full px-2"
+                          >
+                            -
+                          </button>
+                          <h1>{cart.cartQuantity}</h1>
+                          <button
+                            onClick={() => handleUpdateQuantity(cart, true)}
+                            className="bg-orange-400 rounded-full px-2"
+                          >
+                            +
+                          </button>
                         </div>
-                        <p className="text-red-800 font-medium">{cart.price}</p>
+                        <p className="text-red-800 font-medium">
+                          ${cart.price}
+                        </p>
                       </div>
                     </div>
                     <div className="col-span-1 text-right text-xl">
-                      <button>
+                      <button onClick={() => handleDeleteCart(cart._id)}>
                         <RiDeleteBin6Line />
                       </button>
                     </div>

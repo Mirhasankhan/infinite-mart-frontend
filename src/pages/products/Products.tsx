@@ -9,7 +9,7 @@ const Products = () => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/v1/product/allProducts")
+    fetch("https://infinite-mart-server.vercel.app/api/v1/product/allProducts")
       .then((res) => res.json())
       .then((data) => {
         if (category) {
@@ -34,11 +34,15 @@ const Products = () => {
   return (
     <div className="my-8 px-6 md:px-14 grid grid-cols-5 gap-3">
       <div className="bg-gray-400">filters</div>
-      <div className="grid grid-cols-4 gap-6 col-span-4">
-        {products.map((product: TProduct) => (
-          <Card key={product._id} product={product}></Card>
-        ))}
-      </div>
+      {products?.length > 0 ? (
+        <div className="grid grid-cols-4 gap-6 col-span-4">
+          {products?.map((product: TProduct) => (
+            <Card key={product._id} product={product}></Card>
+          ))}
+        </div>
+      ) : (
+        "No Products available for this category"
+      )}
     </div>
   );
 };

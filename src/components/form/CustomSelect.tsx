@@ -7,6 +7,7 @@ type TPHSelectProps = {
   options: { value: string; label: string; disabled?: boolean }[] | undefined;
   disabled?: boolean;
   mode?: "multiple" | undefined;
+  onChange?: (value: string) => void;
 };
 
 const CustomSelect = ({
@@ -15,6 +16,7 @@ const CustomSelect = ({
   options,
   disabled,
   mode,
+  onChange,
 }: TPHSelectProps) => {
   return (
     <Controller
@@ -28,6 +30,7 @@ const CustomSelect = ({
             options={options}
             size="large"
             disabled={disabled}
+            onChange={onChange}
           />
           {error && <small style={{ color: "red" }}>{error.message}</small>}
         </Form.Item>

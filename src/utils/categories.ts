@@ -33,3 +33,8 @@ export const categories = [
     subCategories: ["cables", "chargers", "brands"],
   },
 ];
+
+export const categoriesSelect = categories.map((item) => ({
+  value: item.name,
+  label: item.name,
+}));

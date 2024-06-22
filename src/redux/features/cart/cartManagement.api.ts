@@ -17,23 +17,17 @@ const cartApi = baseApi.injectEndpoints({
       }),
       providesTags: ["products"],
     }),
-    singleSupply: builder.query({
-      query: (id) => ({
-        url: `/supplies/${id}`,
-        method: "GET",
-      }),
-    }),
-    updateSupplyStatus: builder.mutation({
-      query: ({ id, isApplied }) => ({
-        url: `/supplies/${id}`,
+    updateQuantity: builder.mutation({
+      query: (data) => ({
+        url: `/cart/update-quantity`,
         method: "PUT",
-        body: { isApplied },
+        body: data,
       }),
       invalidatesTags: ["products"],
     }),
-    delete: builder.mutation({
+    deleteCart: builder.mutation({
       query: (id) => ({
-        url: `/supplies/${id}`,
+        url: `cart/delete/${id}`,
         method: "DELETE",
       }),
       invalidatesTags: ["products"],
@@ -44,7 +38,6 @@ const cartApi = baseApi.injectEndpoints({
 export const {
   useAddToCartMutation,
   useCartsQuery,
-  useDeleteMutation,
-  useSingleSupplyQuery,
-  useUpdateSupplyStatusMutation,
+  useDeleteCartMutation,
+  useUpdateQuantityMutation,
 } = cartApi;

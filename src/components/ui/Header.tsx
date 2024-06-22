@@ -10,12 +10,9 @@ import { TbCategory2 } from "react-icons/tb";
 import { RiAccountBoxFill } from "react-icons/ri";
 import { useState } from "react";
 import { RiChatDeleteFill } from "react-icons/ri";
-import { useCartsQuery } from "../../redux/features/cart/cartManagement.api";
-import CartModal from "./CartModal";
+import ManageUser from "./ManageUser";
 
 const Header = () => {
-  const { data: cartData } = useCartsQuery("buy2@gmail.com");
-  const [isOpen, setIsOpen] = useState(false);
   const [search, setSearch] = useState(false);
 
   return (
@@ -30,13 +27,13 @@ const Header = () => {
         </div>
         <div className="flex gap-5">
           <Link to="track-order">Order Tracking</Link>
-          <Link to="my-wishlist">My Wishlist</Link>
-          <Link to="register-seller">
+          <Link to="/user/my-wishlist">My Wishlist</Link>
+          <Link to="/seller/register-seller">
             <button>Become Seller</button>
           </Link>
         </div>
       </div>
-      <div className="hidden md:grid grid-cols-5 gap-6 px-6 md:px-14 mt-3">
+      <div className="hidden md:grid grid-cols-6 gap-6 px-6 md:px-14 mt-3">
         <Link to="/" className="col-span-1 flex items-center">
           <img className="h-12 w-12 rounded-full" src={logo} alt="" />
           <h1
@@ -55,33 +52,9 @@ const Header = () => {
             <CiSearch className="text-2xl hover:text-green-400" />
           </div>
         </div>
-        <div className="flex items-center justify-between col-span-1">
-          <div>
-            <Link to="/login">
-              <button>Login | </button>
-            </Link>
-            <Link to="register">
-              <button className="pl-3">Register</button>
-            </Link>
-          </div>
-          <div className="flex items-center gap-6 bg-green-600 px-3 relative rounded-md">
-            <h1 className="bg-orange-200 rounded-full px-1 absolute top-1 right-16">
-              {cartData?.data?.length}
-            </h1>
-            <div className="cursor-pointer" onClick={() => setIsOpen(!isOpen)}>
-              <FaCartShopping className="text-white text-2xl font-semibold"></FaCartShopping>
-            </div>
-            <div className="text-white">
-              <h1>Cart</h1>
-              <p>$0.00</p>
-            </div>
-          </div>
-          <CartModal setIsOpen={setIsOpen} isOpen={isOpen}></CartModal>
-        </div>
+        <ManageUser></ManageUser>
       </div>
       <div className="flex justify-between items-center mx-6 md:hidden">
-        {/* <IoMdMenu className="text-2xl font-semibold"></IoMdMenu> */}
-
         <div>
           <Link to="/" className="col-span-1 flex items-center">
             <img className="h-12 w-12 rounded-full" src={logo} alt="" />

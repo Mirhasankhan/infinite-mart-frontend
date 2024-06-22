@@ -6,6 +6,7 @@ import CustomInput from "../../components/form/CustomInput";
 import { useAppDispatch } from "../../redux/hooks";
 import { useLoginMutation } from "../../redux/features/auth/authApi";
 import { setUser } from "../../redux/features/auth/authSlice";
+import { toast } from "sonner";
 
 const Login = () => {
   const [loginAccount] = useLoginMutation();
@@ -15,14 +16,20 @@ const Login = () => {
   const onSubmit: SubmitHandler<FieldValues> = async (data) => {
     const res = await loginAccount(data).unwrap();
 
-    dispatch(
-      setUser({
-        email: res.data.email,
-        role: res.data.role,
-        token: "token will come",
-      })
-    );
-    navigate("/");
+    if (res.success) {
+      toast.success("loggedin successfully");
+      dispatch(
+        setUser({
+          name: res.data.name,
+          email: res.data.email,
+          role: res.data.isSeller,
+          token: "token will come",
+        })
+      );
+      navigate("/");
+    } else {
+      console.log("error");
+    }
   };
 
   return (

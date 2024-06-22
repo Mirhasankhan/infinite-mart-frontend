@@ -1,18 +1,17 @@
 import { baseApi } from "../../api/baseApi";
 
-const productApi = baseApi.injectEndpoints({
+const purchaseApi = baseApi.injectEndpoints({
   endpoints: (builder) => ({
-    createProdct: builder.mutation({
+    purchaseProduct: builder.mutation({
       query: (productInfo) => ({
-        url: "product/create-product",
+        url: "purchase/purchase-product",
         method: "POST",
         body: productInfo,
       }),
-      invalidatesTags: ["products"],
     }),
-    products: builder.query({
+    purchasedProducts: builder.query({
       query: (email) => ({
-        url: `product/allProducts?email=${email}`,
+        url: `purchase/allPurchase?email=${email}`,
         method: "GET",
       }),
       providesTags: ["products"],
@@ -23,11 +22,11 @@ const productApi = baseApi.injectEndpoints({
         method: "GET",
       }),
     }),
-    addReview: builder.mutation({
-      query: ({ id, reviewData }) => ({
-        url: `/product/${id}/reviews`,
-        method: "PATCH",
-        body: reviewData,
+    updateSupplyStatus: builder.mutation({
+      query: ({ id, isApplied }) => ({
+        url: `/supplies/${id}`,
+        method: "PUT",
+        body: { isApplied },
       }),
       invalidatesTags: ["products"],
     }),
@@ -42,9 +41,9 @@ const productApi = baseApi.injectEndpoints({
 });
 
 export const {
-  useCreateProdctMutation,
-  useProductsQuery,
+  usePurchaseProductMutation,
+  usePurchasedProductsQuery,
   useDeleteMutation,
   useSingleSupplyQuery,
-  useAddReviewMutation,
-} = productApi;
+  useUpdateSupplyStatusMutation,
+} = purchaseApi;

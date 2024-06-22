@@ -7,6 +7,14 @@ import Cart from "../pages/cart/Cart";
 import Products from "../pages/products/Products";
 import Register from "../pages/register/Register";
 import Login from "../pages/login/Login";
+import ProductDetails from "../pages/products/ProductDetails";
+import SellerRegister from "../pages/seller-registraton/SellerRegister";
+import SellerLayout from "../components/layout/SellerLayout";
+import DashboardLayout from "../components/layout/DashboardLayout";
+import { routeGenerator } from "../utils/routeGenerator";
+import { userPaths } from "./user.routes";
+import { sellerPaths } from "./seller.routes";
+import ProceedPayment from "../pages/payment/ProceedPayment";
 
 const router = createBrowserRouter([
   {
@@ -34,8 +42,12 @@ const router = createBrowserRouter([
         element: <Products></Products>,
       },
       {
+        path: "/products/:id",
+        element: <ProductDetails></ProductDetails>,
+      },
+      {
         path: "/checkout",
-        element: "checkout",
+        element: <ProceedPayment></ProceedPayment>,
       },
       {
         path: "/register",
@@ -46,6 +58,26 @@ const router = createBrowserRouter([
         element: <Login></Login>,
       },
     ],
+  },
+  {
+    path: "/seller",
+    element: <SellerLayout></SellerLayout>,
+    children: [
+      {
+        path: "register-seller",
+        element: <SellerRegister></SellerRegister>,
+      },
+    ],
+  },
+  {
+    path: "/user",
+    element: <DashboardLayout></DashboardLayout>,
+    children: routeGenerator(userPaths),
+  },
+  {
+    path: "/seller",
+    element: <DashboardLayout></DashboardLayout>,
+    children: routeGenerator(sellerPaths),
   },
 ]);
 
