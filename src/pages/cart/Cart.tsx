@@ -9,12 +9,20 @@ import { useAppSelector } from "../../redux/hooks";
 import { useCurrentUser } from "../../redux/features/auth/authSlice";
 import { Link } from "react-router-dom";
 import useUpdateCartQuantity from "../../utils/updateQuantity";
+import { TProduct } from "../../types/product.type";
 
 const Cart = () => {
   const { email } = useAppSelector(useCurrentUser);
   const { handleUpdateQuantity } = useUpdateCartQuantity();
   const [deleteCart] = useDeleteCartMutation();
   const { data: cartData } = useCartsQuery(email);
+
+  const totalCost = cartData?.data.reduce(
+    (acc: number, product: TProduct) => acc + product.totalCost,
+    0
+  );
+  console.log(cartData.data);
+  console.log(totalCost);
 
   const handleDeleteCart = (id: string) => {
     deleteCart(id);
@@ -70,19 +78,17 @@ const Cart = () => {
           <h1 className="text-xl pb-3 font-medium">Cart Totals</h1>
           <div className="flex justify-between">
             <h1>Subtotal</h1>
-            <p className="text-red-800">$500</p>
+            <p className="text-red-800">${totalCost}</p>
           </div>
           <div className="flex justify-between py-2">
             <h1>Shipping Cost</h1>
             <p className="text-red-800">$50</p>
           </div>
-          <div className="flex justify-between">
-            <h1>TAX</h1>
-            <p className="text-red-800">$50</p>
-          </div>
           <div className="flex justify-between border-t mt-4 border-gray-500 py-5">
             <h1>Total</h1>
-            <p className="text-red-800 text-xl font-medium">$600</p>
+            <p className="text-red-800 text-xl font-medium">
+              ${totalCost + 50}
+            </p>
           </div>
         </div>
         <Link to="/checkout">

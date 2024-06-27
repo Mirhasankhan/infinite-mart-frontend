@@ -30,11 +30,11 @@ const ManageUser = () => {
   return (
     <div className="flex items-center justify-between col-span-2">
       {email ? (
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-2 hover:bg-gray-300 p-1 rounded-md">
           <div>
             <FaUser className="text-green-400 text-xl"></FaUser>
           </div>
-          <div className="cursor-pointer" onMouseOver={() => setOpen(!open)}>
+          <div className="cursor-pointer" onClick={() => setOpen(!open)}>
             <h1 className="text-sm">
               Hello, {email ? email.toString() : ""}
               <p>Manage Account</p>

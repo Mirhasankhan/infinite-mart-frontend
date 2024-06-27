@@ -29,7 +29,17 @@ const ProductDetails = () => {
     setOrigin("center center");
   };
 
-  const { price, productName, image, seller } = product;
+  const {
+    price,
+    productName,
+    image,
+    seller,
+    reviews,
+    quantity,
+    category,
+    subCategory,
+  } = product;
+
   return (
     <div className="bg-gray-300 px-24 py-6 mt-6">
       <div className="bg-white p-4">
@@ -48,7 +58,7 @@ const ProductDetails = () => {
             </div>
           </div>
           <div className="col-span-3">
-            <h1>{productName}</h1>
+            <h1 className="font-bold text-xl">{productName}</h1>
             <div className="flex items-center gap-2 border-b pb-4">
               <Rating
                 className="mt-auto"
@@ -57,25 +67,32 @@ const ProductDetails = () => {
                 value={4}
                 readOnly
               />
-              <p>(1 reviews)</p>
+              <p>({reviews.length} reviews)</p>
             </div>
             <div className="border-b py-4">
               <h1>Sold By: {seller}</h1>
-              <p>Price: {price}</p>
+              <p>Price: ${price}</p>
+              <h1>
+                Categories: {category} &gt; {subCategory}
+              </h1>
             </div>
             {/* <div className="flex items-center gap-8 py-4 border-b">
               <p>Quantity: </p>
               <div className=" flex items-center gap-3 border px-3 py-1 rounded-lg">
-                <button>-</button>
+                <button onClick={() => handleUpdateQuantity(product, false)}>
+                  -
+                </button>
                 <h1>1</h1>
-                <button>+</button>
+                <button onClick={() => handleUpdateQuantity(product, true)}>
+                  +
+                </button>
               </div>
             </div> */}
-            <p className="py-4">Total Price: {price}</p>
+            <p className="py-4">Quantity: ({quantity} Available)</p>
             <div className="flex gap-6">
               <button
                 onClick={() => handleAddToCart(product)}
-                className="bg-green-400 px-3 py-2 rounded-md text-white"
+                className="bg-green-400 px-3 py-2  text-white"
               >
                 Add To Cart
               </button>

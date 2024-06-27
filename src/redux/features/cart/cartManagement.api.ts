@@ -8,14 +8,14 @@ const cartApi = baseApi.injectEndpoints({
         method: "POST",
         body: cartInfo,
       }),
-      invalidatesTags: ["products"],
+      invalidatesTags: ["cart"],
     }),
     carts: builder.query({
       query: (email) => ({
         url: `cart/allCart?email=${email}`,
         method: "GET",
       }),
-      providesTags: ["products"],
+      providesTags: ["cart"],
     }),
     updateQuantity: builder.mutation({
       query: (data) => ({
@@ -23,14 +23,14 @@ const cartApi = baseApi.injectEndpoints({
         method: "PUT",
         body: data,
       }),
-      invalidatesTags: ["products"],
+      invalidatesTags: ["cart"],
     }),
     deleteCart: builder.mutation({
       query: (id) => ({
         url: `cart/delete/${id}`,
         method: "DELETE",
       }),
-      invalidatesTags: ["products"],
+      invalidatesTags: ["cart"],
     }),
   }),
 });

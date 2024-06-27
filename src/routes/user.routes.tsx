@@ -1,16 +1,12 @@
 import MyOrders from "../pages/dashboard/userDashboard/watchList/MyOrders";
 import MyWatchList from "../pages/dashboard/userDashboard/watchList/MyWatchList";
+import UserDashboard from "../pages/dashboard/userDashboard/watchList/UserDashboard";
 
 export const userPaths = [
   {
     name: "Dashboard",
     path: "dashboard",
-    element: "daksdflsd dashboard",
-  },
-  {
-    name: "My Cart",
-    path: "cart",
-    element: "cart",
+    element: <UserDashboard></UserDashboard>,
   },
   {
     name: "My Orders",
@@ -21,5 +17,10 @@ export const userPaths = [
     name: "My Wishlist",
     path: "my-wishlist",
     element: <MyWatchList></MyWatchList>,
+  },
+  {
+    name: "Manage Profile",
+    path: "manage-profile",
+    element: "MyWatchList></MyWatchList>,",
   },
 ];

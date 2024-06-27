@@ -17,6 +17,13 @@ const productApi = baseApi.injectEndpoints({
       }),
       providesTags: ["products"],
     }),
+    searchedProducts: builder.query({
+      query: (search) => ({
+        url: `product/searchedProducts?search=${search}`,
+        method: "GET",
+      }),
+      providesTags: ["products"],
+    }),
     singleSupply: builder.query({
       query: (id) => ({
         url: `/supplies/${id}`,
@@ -47,4 +54,5 @@ export const {
   useDeleteMutation,
   useSingleSupplyQuery,
   useAddReviewMutation,
+  useSearchedProductsQuery,
 } = productApi;

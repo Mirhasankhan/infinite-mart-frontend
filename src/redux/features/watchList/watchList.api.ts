@@ -8,20 +8,22 @@ const watchListApi = baseApi.injectEndpoints({
         method: "POST",
         body: info,
       }),
+      invalidatesTags: ["wishlist"],
     }),
     watchList: builder.query({
       query: (email) => ({
         url: `watchList/all-watchList?email=${email}`,
         method: "GET",
       }),
+      providesTags: ["wishlist"],
     }),
 
-    delete: builder.mutation({
+    deleteWishlist: builder.mutation({
       query: (id) => ({
-        url: `/supplies/${id}`,
+        url: `/watchList/${id}`,
         method: "DELETE",
       }),
-      invalidatesTags: ["products"],
+      invalidatesTags: ["wishlist"],
     }),
   }),
 });
@@ -29,5 +31,5 @@ const watchListApi = baseApi.injectEndpoints({
 export const {
   useAddToWatchListMutation,
   useWatchListQuery,
-  useDeleteMutation,
+  useDeleteWishlistMutation,
 } = watchListApi;

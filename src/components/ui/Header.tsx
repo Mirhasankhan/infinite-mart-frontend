@@ -11,6 +11,7 @@ import { RiAccountBoxFill } from "react-icons/ri";
 import { useState } from "react";
 import { RiChatDeleteFill } from "react-icons/ri";
 import ManageUser from "./ManageUser";
+import SearchedProducts from "./SearchedProducts";
 
 const Header = () => {
   const [search, setSearch] = useState(false);
@@ -44,7 +45,14 @@ const Header = () => {
           </h1>
         </Link>
         <div className="flex col-span-3 relative">
-          <Input placeholder="Search for..." variant="filled" />
+          <div className="w-full h-full">
+            {/* <Input
+              className="w-full h-full"
+              placeholder="Search for..."
+              variant="filled"
+            /> */}
+            <SearchedProducts></SearchedProducts>
+          </div>
           <div
             onClick={() => console.log("hello")}
             className="absolute right-3 top-3 border-l-2 pl-2 cursor-pointer"

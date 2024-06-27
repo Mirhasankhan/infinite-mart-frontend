@@ -46,7 +46,11 @@ const CartModal = ({ isOpen, setIsOpen }: CartProps) => {
                       />
                     </div>
                     <div className="col-span-2">
-                      <h1>{cart.productName}</h1>
+                      <h1>
+                        {cart.productName.length > 20
+                          ? cart.productName.substring(0, 20) + "..."
+                          : cart.productName}
+                      </h1>
                       <div className="flex items-center gap-2">
                         <div className="flex gap-3 border px-2 py-1 rounded-lg">
                           <button

@@ -1,31 +1,22 @@
-import { Button } from "antd";
 import { useCurrentUser } from "../../redux/features/auth/authSlice";
 import { useCartsQuery } from "../../redux/features/cart/cartManagement.api";
-import { usePurchaseProductMutation } from "../../redux/features/purchase/purchase.api";
 import { useAppSelector } from "../../redux/hooks";
 import { TCart } from "../../types/cart.type";
 import { TProduct } from "../../types/product.type";
+import { loadStripe } from "@stripe/stripe-js";
+import { Elements } from "@stripe/react-stripe-js";
+import PayOut from "../../components/ui/PayOut";
+
+const striprePromise = loadStripe(import.meta.env.VITE_Stripe_Gateway_PK);
 
 const ProceedPayment = () => {
   const { email } = useAppSelector(useCurrentUser);
-  const [purchaseProduct] = usePurchaseProductMutation();
   const { data: cartData } = useCartsQuery(email);
 
   const totalCost = cartData?.data.reduce(
-    (acc: number, product: TProduct) => acc + +product.price,
+    (acc: number, product: TProduct) => acc + product.totalCost,
     0
   );
-
-  const handlePurchase = (product: TProduct[]) => {
-    const updatedProducts = product?.map((product: TProduct) => {
-      return { ...product, cartId: product._id };
-    });
-    const updateProduct = {
-      products: updatedProducts,
-    };
-    purchaseProduct(updateProduct);
-    console.log(updateProduct);
-  };
 
   return (
     <div className="px-6 md:px-14 my-24">
@@ -65,7 +56,7 @@ const ProceedPayment = () => {
           ))}
           <div className="flex justify-between">
             <h1>Subtotal :</h1>
-            <h1 className="text-red-800 font-medium"> ${totalCost * 2}</h1>
+            <h1 className="text-red-800 font-medium"> ${totalCost}</h1>
           </div>
           <div className="flex justify-between">
             <h1>Delivery Cost :</h1>
@@ -73,14 +64,15 @@ const ProceedPayment = () => {
           </div>
           <div className="flex justify-between pb-6">
             <h1>Total Cost :</h1>
-            <h1 className="text-red-800 font-medium">${50 + totalCost * 2}</h1>
+            <h1 className="text-red-800 font-medium">${50 + totalCost}</h1>
           </div>
-          <Button
-            className="w-full bg-green-400"
-            onClick={() => handlePurchase(cartData?.data)}
-          >
-            Place Order
-          </Button>
+
+          <Elements stripe={striprePromise}>
+            <PayOut
+              selectedProduct={cartData?.data}
+              totalCost={totalCost}
+            ></PayOut>
+          </Elements>
         </div>
       </div>
     </div>

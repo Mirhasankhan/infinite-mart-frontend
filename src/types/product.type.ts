@@ -10,5 +10,10 @@ export type TProduct = {
   subCategory: string;
   content: string;
   productId: string;
+  email: string;
+  cartQuantity: number;
+  totalCost: number;
+  seller: string;
+  sold: number;
   reviews: [{ username: string; rating: number; review: string }];
 };

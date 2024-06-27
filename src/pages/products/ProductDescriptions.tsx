@@ -2,7 +2,6 @@ import { Tabs, TabsProps } from "antd";
 import { TProduct } from "../../types/product.type";
 
 const ProductDescriptions = ({ product }: { product: TProduct }) => {
-  console.log(product);
   const items: TabsProps["items"] = [
     {
       key: "1",
@@ -32,8 +31,37 @@ const ProductDescriptions = ({ product }: { product: TProduct }) => {
       key: "3",
       label: "Return Policy",
       children: (
-        <div>
-          <h1>return policy</h1>
+        <div className="px-6">
+          <ul className="list-disc">
+            <li>
+              If your product is damaged, defective, incorrect or incomplete at
+              the time of delivery, please file a return request on call to
+              customer care support number within 3 days of the delivery date.
+            </li>
+            <li>
+              Change of mind is not applicable as a Return Reason for this
+              product.
+            </li>
+          </ul>
+          <h1 className="font-medium py-3">Valid reasons to return an item</h1>
+          <ul className="list-disc">
+            <li>
+              Delivered product is damaged (i.e. physically destroyed or broken)
+              / defective (e.g. unable to switch on)
+            </li>
+            <li>
+              Delivered product is incomplete (i.e. has missing items and/or
+              accessories)
+            </li>
+            <li>
+              Delivered product is incorrect (i.e. wrong product/size/colour,
+              fake item, or expired)
+            </li>
+            <li>
+              Delivered product is does not match product description or picture
+              (i.e product not as advertised)
+            </li>
+          </ul>
         </div>
       ),
     },
