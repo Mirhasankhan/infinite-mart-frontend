@@ -19,7 +19,7 @@ const Header = () => {
 
   return (
     <header className="">
-      <div className=" md:flex justify-between bg-gray-300 px-6 md:px-14 py-2">
+      <div className="md:flex justify-between bg-gray-300 px-6 md:px-14 py-2">
         <div className="flex gap-6">
           <h1>Welcome to Infinite Mart</h1>
           <div className="flex items-center gap-1">
