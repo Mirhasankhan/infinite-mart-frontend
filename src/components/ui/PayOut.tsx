@@ -78,7 +78,7 @@ const PayOut: React.FC<PayOutProps> = ({ selectedProduct, totalCost }) => {
       setTId(paymentIntent.id);
       toast.success("transaction completed");
       const updatedProducts = selectedProduct?.map((product: TProduct) => {
-        return { ...product, cartId: product._id };
+        return { ...product, cartId: product._id, date: new Date() };
       });
       const payment = {
         products: updatedProducts,

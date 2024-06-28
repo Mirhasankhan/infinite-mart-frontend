@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useSearchParams } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import { TProduct } from "../../types/product.type";
 import Card from "../../components/ui/Card";
 
@@ -32,17 +32,22 @@ const Products = () => {
   }, [category]);
 
   return (
-    <div className="my-8 px-6 md:px-14 grid grid-cols-5 gap-3">
-      <div className="bg-gray-400">filters</div>
-      {products?.length > 0 ? (
-        <div className="grid grid-cols-4 gap-6 col-span-4">
-          {products?.map((product: TProduct) => (
-            <Card key={product._id} product={product}></Card>
-          ))}
-        </div>
-      ) : (
-        "No Products available for this category"
-      )}
+    <div className="my-8 px-6 md:px-14">
+      <div>
+        <Link to="/">Home</Link>
+        <Link to={`/products?category=${category}`}>{category}</Link>
+      </div>
+      <div className="mt-6">
+        {products?.length > 0 ? (
+          <div className="grid grid-cols-5 gap-6">
+            {products?.map((product: TProduct) => (
+              <Card key={product._id} product={product}></Card>
+            ))}
+          </div>
+        ) : (
+          "No Products available for this category"
+        )}
+      </div>
     </div>
   );
 };

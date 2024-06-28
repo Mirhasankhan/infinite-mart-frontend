@@ -12,6 +12,7 @@ export type TProduct = {
   productId: string;
   email: string;
   cartQuantity: number;
+  quantity: number;
   totalCost: number;
   seller: string;
   sold: number;

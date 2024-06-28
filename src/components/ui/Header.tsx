@@ -12,18 +12,25 @@ import { useState } from "react";
 import { RiChatDeleteFill } from "react-icons/ri";
 import ManageUser from "./ManageUser";
 import SearchedProducts from "./SearchedProducts";
+import WhatsAppLink from "./WhatsApp";
 
 const Header = () => {
   const [search, setSearch] = useState(false);
 
   return (
     <header className="">
-      <div className="hidden md:flex justify-between bg-gray-300 px-6 md:px-14 py-2">
+      <div className=" md:flex justify-between bg-gray-300 px-6 md:px-14 py-2">
         <div className="flex gap-6">
           <h1>Welcome to Infinite Mart</h1>
           <div className="flex items-center gap-1">
             <FaPhoneAlt className="text-green-500 text-xl"></FaPhoneAlt>
-            <h1>Help Line: +92668754847</h1>
+            {/* <h1>Help Line: +92668754847</h1> */}
+            <div>
+              <WhatsAppLink
+                phoneNumber={"01678506798"}
+                text="Helpline: 01678506798"
+              />
+            </div>
           </div>
         </div>
         <div className="flex gap-5">
