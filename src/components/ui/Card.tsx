@@ -15,7 +15,7 @@ const Card = ({ product }: { product: TProduct }) => {
     <div className="relative group border">
       <Link
         state={{ product: product }}
-        to={`products/${product._id}`}
+        to={`/products/${product._id}`}
         className="flex flex-col h-full border hover:shadow-lg"
       >
         <img className="h-60 w-full" src={image.imageUrl} alt="" />

@@ -43,15 +43,15 @@ const CountdownTimer: React.FC<CountdownTimerProps> = ({ targetDate }) => {
 
   return (
     <div>
-      <span className="bg-orange-300 p-2 text-white rounded-md">
+      <span className="bg-orange-300 p-1 text-white rounded-md">
         {String(timeLeft.hours).padStart(2, "0")}
       </span>
       :
-      <span className="bg-orange-300 p-2 text-white rounded-md">
+      <span className="bg-orange-300 p-1 text-white rounded-md">
         {String(timeLeft.minutes).padStart(2, "0")}
       </span>
       :
-      <span className="bg-orange-300 p-2 text-white rounded-md">
+      <span className="bg-orange-300 p-1 text-white rounded-md">
         {String(timeLeft.seconds).padStart(2, "0")}
       </span>
     </div>

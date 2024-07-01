@@ -9,9 +9,11 @@ const TopSelling = () => {
   );
 
   return (
-    <div className="px-6 md:px-14 my-12">
-      <h1 className="text-2xl font-medium pb-6">Top Selling Products</h1>
-      <div className="grid grid-cols-5 gap-3">
+    <div className="px-3 md:px-14 my-12">
+      <h1 className="text-xl md:text-2xl font-medium pb-6">
+        Top Selling Products
+      </h1>
+      <div className="grid grid-cols-2 md:grid-cols-5 gap-3">
         {soldData
           ?.sort((a: { sold: number }, b: { sold: number }) => b.sold - a.sold)
           .slice(0, 5)

@@ -15,7 +15,7 @@ const BannerSlide = () => {
     slidesToScroll: 1,
   };
   return (
-    <div className="px-14">
+    <div className="px-2 md:px-14">
       <div className="slider-container mt-4">
         <Slider {...settings}>
           <img src={slide1}></img>

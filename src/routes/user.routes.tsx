@@ -1,3 +1,4 @@
+import ManageProfile from "../pages/dashboard/userDashboard/watchList/ManageProfile";
 import MyOrders from "../pages/dashboard/userDashboard/watchList/MyOrders";
 import MyWatchList from "../pages/dashboard/userDashboard/watchList/MyWatchList";
 import UserDashboard from "../pages/dashboard/userDashboard/watchList/UserDashboard";
@@ -21,6 +22,6 @@ export const userPaths = [
   {
     name: "Manage Profile",
     path: "manage-profile",
-    element: "MyWatchList></MyWatchList>,",
+    element: <ManageProfile></ManageProfile>,
   },
 ];

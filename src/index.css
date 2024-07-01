@@ -1,3 +1,8 @@
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Delicious+Handrawn&family=Exo+2&family=Itim&family=Josefin+Sans&family=Nunito&family=Poppins&family=Rancho&family=Righteous&family=Roboto&family=Ubuntu&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+  font-family: "Nunito", sans-serif;
+}

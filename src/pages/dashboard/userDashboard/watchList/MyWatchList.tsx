@@ -27,7 +27,6 @@ const MyWatchList = () => {
       <div>
         {data?.data.length > 0 ? (
           <div>
-            {" "}
             {data?.data.map((list: TProduct) => (
               <div
                 className="grid grid-cols-2 my-6 border-b pb-6"
@@ -66,13 +65,15 @@ const MyWatchList = () => {
             ))}
           </div>
         ) : (
-          <div className="bg-white p-4 mt-4 border-t-4 border-blue-600 flex justify-between">
+          <div className="bg-white p-4 mt-4 border-t-4 border-blue-600 md:flex justify-between">
             <div className="flex items-center gap-2">
               <MdCheckBoxOutlineBlank className="text-blue-300 text-xl"></MdCheckBoxOutlineBlank>
               <h1>No Product have been added in wishlist</h1>
             </div>
             <Link to={"/"}>
-              <Button className="bg-green-400">Browse Products</Button>
+              <Button className="bg-green-400 text-white font-medium mt-2">
+                Browse Products
+              </Button>
             </Link>
           </div>
         )}

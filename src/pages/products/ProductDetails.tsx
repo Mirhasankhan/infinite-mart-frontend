@@ -41,10 +41,10 @@ const ProductDetails = () => {
   } = product;
 
   return (
-    <div className="bg-gray-300 px-24 py-6 mt-6">
-      <div className="bg-white p-4">
+    <div className="bg-gray-300 px-3 md:px-24 py-6 mt-6">
+      <div className="bg-white p-4 rounded-md">
         <div className=" grid grid-cols-5 gap-6 rounded-md">
-          <div className="col-span-2">
+          <div className="col-span-5 md:col-span-2">
             <div
               className="h-64 md:h-[384px] rounded-md w-full overflow-hidden hover:cursor-zoom-in"
               onMouseMove={handleMouseMove}
@@ -57,7 +57,7 @@ const ProductDetails = () => {
               />
             </div>
           </div>
-          <div className="col-span-3">
+          <div className="col-span-5 md:col-span-3">
             <h1 className="font-bold text-xl">{productName}</h1>
             <div className="flex items-center gap-2 border-b pb-4">
               <Rating
@@ -76,18 +76,6 @@ const ProductDetails = () => {
                 Categories: {category} &gt; {subCategory}
               </h1>
             </div>
-            {/* <div className="flex items-center gap-8 py-4 border-b">
-              <p>Quantity: </p>
-              <div className=" flex items-center gap-3 border px-3 py-1 rounded-lg">
-                <button onClick={() => handleUpdateQuantity(product, false)}>
-                  -
-                </button>
-                <h1>1</h1>
-                <button onClick={() => handleUpdateQuantity(product, true)}>
-                  +
-                </button>
-              </div>
-            </div> */}
             <p className="py-4">Quantity: ({quantity} Available)</p>
             <div className="flex gap-6">
               <button

@@ -28,15 +28,15 @@ const Cart = () => {
     deleteCart(id);
   };
   return (
-    <div className="grid grid-cols-4 gap-12 px-6 md:px-14 mt-12">
-      <div className="col-span-3">
-        <h1 className="text-2xl font-medium border-b pb-3">Cart</h1>
+    <div className="grid grid-cols-4 gap-12 px-3 md:px-14 mt-12">
+      <div className="col-span-4 md:col-span-3">
+        <h1 className="text-xl md:text-2xl font-medium border-b pb-3">Cart</h1>
         {cartData?.data?.map((cart: TCart) => (
           <div key={cart._id} className="grid grid-cols-5 border-b py-3">
             <div className="mb-4 col-span-2">
               <div className="flex gap-4 items-center">
                 <img
-                  className="h-12 w-12  border"
+                  className="h-12 w-12 border"
                   src={cart.image.imageUrl}
                   alt=""
                 />
@@ -52,7 +52,7 @@ const Cart = () => {
                 >
                   -
                 </button>
-                <h1 className="px-8">{cart.cartQuantity}</h1>
+                <h1 className="px-2 md:px-8">{cart.cartQuantity}</h1>
                 <button
                   onClick={() => handleUpdateQuantity(cart, true)}
                   className="bg-orange-400 h-full px-3 rounded-r-lg text-2xl"
@@ -71,9 +71,13 @@ const Cart = () => {
             </div>
           </div>
         ))}
-        <Button className="bg-green-400 mt-6">Continue Shopping</Button>
+        <Link to="/">
+          <Button className="bg-green-400 mt-6 text-white font-medium">
+            Continue Shopping
+          </Button>
+        </Link>
       </div>
-      <div className="col-span-1 h-80 mt-9">
+      <div className="col-span-4 md:col-span-1 h-80 mt-9">
         <div className="bg-gray-200 rounded-md max-h-80 p-3">
           <h1 className="text-xl pb-3 font-medium">Cart Totals</h1>
           <div className="flex justify-between">

@@ -16,15 +16,26 @@ const authApi = baseApi.injectEndpoints({
         body: userInfo,
       }),
     }),
-    update: builder.mutation({
-      query: ({ email, role }) => ({
-        url: `/users/${email}/updateRole`,
+    activeUser: builder.query({
+      query: (email) => ({
+        url: `auth/current-user?email=${email}`,
+        method: "GET",
+      }),
+      providesTags: ["products"],
+    }),
+    updateUser: builder.mutation({
+      query: (data) => ({
+        url: `/auth/update-user`,
         method: "PUT",
-        body: { role },
+        body: data,
       }),
     }),
   }),
 });
 
-export const { useRegisterMutation, useLoginMutation, useUpdateMutation } =
-  authApi;
+export const {
+  useRegisterMutation,
+  useLoginMutation,
+  useActiveUserQuery,
+  useUpdateUserMutation,
+} = authApi;
