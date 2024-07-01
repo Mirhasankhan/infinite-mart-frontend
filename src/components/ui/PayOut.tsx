@@ -23,13 +23,16 @@ const PayOut: React.FC<PayOutProps> = ({ selectedProduct, totalCost }) => {
   const [tId, setTId] = useState<string>("");
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/v1/purchase/create-payment-intent", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify({ price: totalCost + 50 }),
-    })
+    fetch(
+      "https://infinite-mart-server.vercel.app/api/v1/purchase/create-payment-intent",
+      {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify({ price: totalCost + 50 }),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         setClientSecret(data.clientSecret);
