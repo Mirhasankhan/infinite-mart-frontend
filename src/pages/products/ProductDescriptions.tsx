@@ -1,5 +1,7 @@
 import { Tabs, TabsProps } from "antd";
 import { TProduct } from "../../types/product.type";
+import { Rating } from "@smastrom/react-rating";
+import "@smastrom/react-rating/style.css";
 
 const ProductDescriptions = ({ product }: { product: TProduct }) => {
   const items: TabsProps["items"] = [
@@ -19,8 +21,18 @@ const ProductDescriptions = ({ product }: { product: TProduct }) => {
         <div>
           {product?.reviews?.map((review) => (
             <div className="border p-2 rounded-md my-3" key={review.review}>
-              <h1>{review.username}</h1>
-              <p>Rating: {review.rating}</p>
+              <h1 className=" font-medium">Review By: {review.username}</h1>
+              <div className="flex items-center gap-3">
+                <p>Rating: </p>
+                <Rating
+                  className="mt-auto"
+                  style={{ maxWidth: 80 }}
+                  // value={Math.round(testi.rating)}
+                  value={4}
+                  readOnly
+                />
+              </div>
+
               <p>Review: {review.review}</p>
             </div>
           ))}
@@ -31,7 +43,7 @@ const ProductDescriptions = ({ product }: { product: TProduct }) => {
       key: "3",
       label: "Return Policy",
       children: (
-        <div className="px-6">
+        <div className="px-3">
           <ul className="list-disc">
             <li>
               If your product is damaged, defective, incorrect or incomplete at

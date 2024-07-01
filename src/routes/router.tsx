@@ -15,6 +15,7 @@ import { routeGenerator } from "../utils/routeGenerator";
 import { userPaths } from "./user.routes";
 import { sellerPaths } from "./seller.routes";
 import ProceedPayment from "../pages/payment/ProceedPayment";
+import Categories from "../pages/Home/Categories/Categories";
 
 const router = createBrowserRouter([
   {
@@ -48,6 +49,10 @@ const router = createBrowserRouter([
       {
         path: "/checkout",
         element: <ProceedPayment></ProceedPayment>,
+      },
+      {
+        path: "/categories",
+        element: <Categories></Categories>,
       },
       {
         path: "/register",

@@ -32,7 +32,7 @@ const Products = () => {
   }, [category]);
 
   return (
-    <div className="my-8 px-6 md:px-14">
+    <div className="my-8 px-3 md:px-14">
       <div>
         <Link to="/">Home</Link>
         <Link to={`/products?category=${category}`}>{category}</Link>

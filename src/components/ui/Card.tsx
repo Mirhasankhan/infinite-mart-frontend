@@ -12,11 +12,11 @@ const Card = ({ product }: { product: TProduct }) => {
   const { handleAddToWishlist } = useAddProductToWishlist();
 
   return (
-    <div className="relative group border">
+    <div className="relative group border rounded-md">
       <Link
         state={{ product: product }}
         to={`/products/${product._id}`}
-        className="flex flex-col h-full border hover:shadow-lg"
+        className="flex flex-col h-full border hover:shadow-lg rounded-md"
       >
         <img className="h-60 w-full" src={image.imageUrl} alt="" />
         <div className="px-3 py-3 flex-grow flex flex-col justify-between">
@@ -28,7 +28,11 @@ const Card = ({ product }: { product: TProduct }) => {
             value={4}
             readOnly
           />
-          <h1>{productName}</h1>
+          <h1>
+            {productName.length > 20
+              ? productName.substring(0, 20) + "..."
+              : productName}
+          </h1>
         </div>
       </Link>
       <div className="absolute top-2 right-2 opacity-0 transform scale-0 group-hover:opacity-100 group-hover:scale-100 transition-transform duration-500">

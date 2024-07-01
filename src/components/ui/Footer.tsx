@@ -13,7 +13,7 @@ import { Button, Input } from "antd";
 
 const Footer = () => {
   return (
-    <div className="md:grid grid-cols-5 mx-6 md:mx-14 py-8 border-t">
+    <div className="md:grid grid-cols-5 mx-3 md:mx-14 py-8 border-t">
       <div className="col-span-2">
         <div>
           <Link to="/" className="col-span-1 flex items-center">
@@ -49,7 +49,6 @@ const Footer = () => {
           <FaXTwitter></FaXTwitter>
           <FaLinkedin></FaLinkedin>
         </div>
-        <p>© 2024 InfiniteMart. All rights reserved.</p>
       </div>
       <div className="col-span-1">
         <h1 className="font-semibold text-xl pb-5">ABOUT</h1>
@@ -99,6 +98,9 @@ const Footer = () => {
           Subscribe
         </Button>
       </div>
+      <p className="text-center col-span-5 mb-8 md:mb-1">
+        © 2024 InfiniteMart. All rights reserved.
+      </p>
     </div>
   );
 };

@@ -12,13 +12,17 @@ import { RiChatDeleteFill } from "react-icons/ri";
 import ManageUser from "./ManageUser";
 import SearchedProducts from "./SearchedProducts";
 import WhatsAppLink from "./WhatsApp";
+import { useAppSelector } from "../../redux/hooks";
+import { useCurrentUser } from "../../redux/features/auth/authSlice";
 
 const Header = () => {
   const [search, setSearch] = useState(false);
+  const { role } = useAppSelector(useCurrentUser);
+  const currentRole = role == true ? "seller" : "user";
 
   return (
     <header className="">
-      <div className="hidden md:flex justify-between bg-gray-300 px-6 md:px-14 py-2">
+      <div className="hidden md:flex justify-between bg-gray-300 px-3 md:px-14 py-2">
         <div className="flex gap-6">
           <h1>Welcome to Infinite Mart</h1>
           <div className="flex items-center gap-1">
@@ -39,7 +43,7 @@ const Header = () => {
           </Link>
         </div>
       </div>
-      <div className="hidden md:grid grid-cols-6 gap-6 px-6 md:px-14 mt-3">
+      <div className="hidden md:grid grid-cols-6 gap-6 px-3 md:px-14 mt-3">
         <Link to="/" className="col-span-1 flex items-center">
           <img className="h-12 w-12 rounded-full" src={logo} alt="" />
           <h1
@@ -87,7 +91,7 @@ const Header = () => {
           <SearchedProducts></SearchedProducts>
         </div>
       )}
-      <div className="fixed bottom-0 left-0 right-0 border-t bg-white z-50 p-2 shadow-md flex justify-between px-6 md:hidden items-center text-center">
+      <div className="fixed bottom-0 left-0 right-0 border-t bg-white z-50 p-2 shadow-md flex justify-between px-3 md:hidden items-center text-center">
         <Link to="/" className="flex flex-col items-center">
           <IoHome className="text-green-600 text-xl"></IoHome>
           <p className="text-sm">Home</p>
@@ -96,18 +100,21 @@ const Header = () => {
           <FaCartShopping className="text-green-600 text-xl"></FaCartShopping>
           <p className="text-sm">Cart</p>
         </Link>
-        <div className="flex flex-col items-center">
+        <Link to="/categories" className="flex flex-col items-center">
           <TbCategory2 className="text-green-600 text-xl"></TbCategory2>
           <p className="text-sm">Categories</p>
-        </div>
+        </Link>
         <Link to="/user/my-wishlist" className="flex flex-col items-center">
           <CiHeart className="text-green-600 text-xl"></CiHeart>
           <p className="text-sm">Wishlist</p>
         </Link>
-        <div className="flex flex-col items-center">
+        <Link
+          to={currentRole ? `/${currentRole}/dashboard` : "/login"}
+          className="flex flex-col items-center"
+        >
           <RiAccountBoxFill className="text-green-600 text-xl"></RiAccountBoxFill>
           <p className="text-sm">Account</p>
-        </div>
+        </Link>
       </div>
     </header>
   );

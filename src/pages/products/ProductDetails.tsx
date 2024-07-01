@@ -80,7 +80,7 @@ const ProductDetails = () => {
             <div className="flex gap-6">
               <button
                 onClick={() => handleAddToCart(product)}
-                className="bg-green-400 px-3 py-2  text-white"
+                className="bg-green-400 px-3 py-2 font-medium rounded-md text-white"
               >
                 Add To Cart
               </button>
