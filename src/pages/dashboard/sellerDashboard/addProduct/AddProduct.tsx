@@ -51,7 +51,6 @@ const AddProduct = () => {
       },
     };
     uploadProduct(newProduct);
-    console.log(newProduct);
   };
 
   const handleChangeCategory = (value: string) => {
@@ -121,7 +120,7 @@ const AddProduct = () => {
                     render={({ field: { onChange, value, ...field } }) => (
                       <Form.Item label="Product Image">
                         <Input
-                          className="bg-gray-100 border-2 border-green-200"
+                          className="bg-gray-100 border-2 border-gray-300"
                           type="file"
                           value={value?.fileName}
                           {...field}
@@ -135,7 +134,7 @@ const AddProduct = () => {
               <Row gutter={8}>
                 <Col span={12}>
                   <label className="font-semibold" htmlFor="">
-                    Write Here
+                    Write Product Description
                   </label>
                   <ReactQuill
                     className="my-3"

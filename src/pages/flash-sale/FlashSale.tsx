@@ -4,12 +4,17 @@ import CountdownTimer from "../../components/ui/CountDown";
 import { useProductsQuery } from "../../redux/features/products/prouductManagement.api";
 import { TProduct } from "../../types/product.type";
 import { Link, useLocation } from "react-router-dom";
+import { useEffect } from "react";
 
 const FlashSale = () => {
   const { data } = useProductsQuery("");
   const flashData = data?.data?.filter(
     (flash: { flashSale: true }) => flash.flashSale === true
   );
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   const location = useLocation();
   const isFlashSalePage = location.pathname === "/flash-sale";

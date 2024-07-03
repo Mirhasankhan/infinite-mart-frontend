@@ -2,14 +2,14 @@ import { Layout } from "antd";
 import { Outlet } from "react-router-dom";
 import Sidebar from "../ui/Sidebar";
 
-const { Header, Content } = Layout;
+const { Content } = Layout;
 
 const DashboardLayout = () => {
   return (
-    <Layout>
+    <Layout className="px-14">
       <Sidebar></Sidebar>
       <Layout>
-        <Header style={{ padding: 0 }} />
+        {/* <Header style={{ padding: 0 }} /> */}
         <Content style={{ margin: "24px 16px 0" }}>
           <div
             style={{

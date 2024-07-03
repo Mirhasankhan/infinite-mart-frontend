@@ -21,8 +21,6 @@ const Cart = () => {
     (acc: number, product: TProduct) => acc + product.totalCost,
     0
   );
-  console.log(cartData.data);
-  console.log(totalCost);
 
   const handleDeleteCart = (id: string) => {
     deleteCart(id);

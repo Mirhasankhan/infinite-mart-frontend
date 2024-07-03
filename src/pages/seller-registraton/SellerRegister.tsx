@@ -69,7 +69,7 @@ const SellerRegister = () => {
                 className="w-full bg-orange-400 text-white  font-semibold"
                 htmlType="submit"
               >
-                Create Account
+                Create Seller Account
               </Button>
               <h1 className="pt-3">
                 Already have an account?{" "}

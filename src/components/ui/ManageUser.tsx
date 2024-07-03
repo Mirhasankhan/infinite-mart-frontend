@@ -41,8 +41,14 @@ const ManageUser = () => {
             </h1>
           </div>
           {open && (
-            <div className="absolute top-[44px] border z-40 md:top-[100px] right-84 bg-white p-2 md:p-6 rounded-b-md min-w-[250px]">
-              <Link to="/" className="flex gap-2 items-center text-gray-700">
+            <div
+              onClick={() => setOpen(!open)}
+              className="absolute top-[44px] border z-40 md:top-[100px] right-84 bg-white p-2 md:p-6 rounded-b-md min-w-[250px]"
+            >
+              <Link
+                to={`/${currentRole}/manage-profile`}
+                className="flex gap-2 items-center text-gray-700"
+              >
                 <MdOutlineManageAccounts className="text-2xl" />
                 <h1 className="hover:underline hover:text-red-500">
                   Manage My Account
@@ -58,12 +64,12 @@ const ManageUser = () => {
                 </h1>
               </Link>
               <Link
-                to={`/`}
+                to={`/user/my-wishlist`}
                 className="flex gap-2 items-center text-gray-700 md:my-3 my-1"
               >
                 <CiCircleList className="text-2xl" />
                 <h1 className="hover:underline hover:text-red-500">
-                  My Watchlist
+                  My Wishlist
                 </h1>
               </Link>
 

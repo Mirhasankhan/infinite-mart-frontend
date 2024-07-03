@@ -1,10 +1,11 @@
 import { Layout, Menu } from "antd";
 import { useAppSelector } from "../../redux/hooks";
-import { Link } from "react-router-dom";
 import { useCurrentUser } from "../../redux/features/auth/authSlice";
 import { sidebarItemsGenerator } from "../../utils/SidebarItemsGenerator";
 import { userPaths } from "../../routes/user.routes";
 import { sellerPaths } from "../../routes/seller.routes";
+import profile from "../../assets/images/profile.png";
+import { useActiveUserQuery } from "../../redux/features/auth/authApi";
 
 const { Sider } = Layout;
 
@@ -14,8 +15,12 @@ const userRole = {
 };
 
 const Sidebar = () => {
-  const { role } = useAppSelector(useCurrentUser);
+  const { role, email } = useAppSelector(useCurrentUser);
   const currentRole = role == true ? "seller" : "user";
+  const { data: userData } = useActiveUserQuery(email);
+  const profileImage = userData?.data.image
+    ? userData.data.image.imageUrl
+    : profile;
 
   let sidebarItems;
 
@@ -30,32 +35,47 @@ const Sidebar = () => {
     default:
       break;
   }
+
   return (
-    <Sider breakpoint="lg" collapsedWidth="0">
+    <Sider
+      className="my-12"
+      breakpoint="lg"
+      collapsedWidth="0"
+      width={250}
+      style={{
+        backgroundColor: "white",
+        borderRadius: "10px",
+        overflow: "hidden",
+      }}
+    >
       <div
         style={{
-          color: "white",
+          color: "black",
           textAlign: "center",
-          height: "4rem",
+          height: "11rem",
           display: "flex",
           justifyContent: "center",
-          alignItems: "center",
+          // alignItems: "center",
         }}
       >
-        <Link to="/">
-          <h1 className="font-semibold">Infinite Mart </h1>
-          {/* <div className="flex flex-col items-center justify-center bg-red-400 w-full h-full pl-2 pr-3">
-            <FaUserCircle className="text-5xl"></FaUserCircle>
-            <h1>{name}</h1>
-            <h1>{email?.toString()}</h1>
-          </div> */}
-        </Link>
+        <div className="bg-orange-500 w-full flex flex-col items-center text-white">
+          <img
+            className="w-16 h-16 mt-6 rounded-full"
+            src={profileImage}
+            alt=""
+          />
+          <h1 className="my-2 font-medium">{userData?.data.name}</h1>
+          <h1>{userData?.data.email}</h1>
+        </div>
       </div>
       <Menu
-        theme="dark"
+        theme="light"
         mode="inline"
         defaultSelectedKeys={["4"]}
         items={sidebarItems}
+        style={{
+          backgroundColor: "white",
+        }}
       />
     </Sider>
   );

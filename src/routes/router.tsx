@@ -9,13 +9,15 @@ import Register from "../pages/register/Register";
 import Login from "../pages/login/Login";
 import ProductDetails from "../pages/products/ProductDetails";
 import SellerRegister from "../pages/seller-registraton/SellerRegister";
-import SellerLayout from "../components/layout/SellerLayout";
 import DashboardLayout from "../components/layout/DashboardLayout";
 import { routeGenerator } from "../utils/routeGenerator";
 import { userPaths } from "./user.routes";
 import { sellerPaths } from "./seller.routes";
 import ProceedPayment from "../pages/payment/ProceedPayment";
 import Categories from "../pages/Home/Categories/Categories";
+import UserRoutes from "./UserRoutes";
+import SellerRoutes from "./SellerRoute";
+import ContactUs from "../pages/contactUS/ContactUs";
 
 const router = createBrowserRouter([
   {
@@ -25,10 +27,6 @@ const router = createBrowserRouter([
       {
         index: true,
         element: <Home></Home>,
-      },
-      {
-        path: "/about",
-        element: <About></About>,
       },
       {
         path: "/flash-sale",
@@ -62,27 +60,37 @@ const router = createBrowserRouter([
         path: "/login",
         element: <Login></Login>,
       },
-    ],
-  },
-  {
-    path: "/seller",
-    element: <SellerLayout></SellerLayout>,
-    children: [
       {
         path: "register-seller",
         element: <SellerRegister></SellerRegister>,
       },
+      {
+        path: "contact-us",
+        element: <ContactUs></ContactUs>,
+      },
+      {
+        path: "about-us",
+        element: <About></About>,
+      },
+      {
+        path: "/user",
+        element: (
+          <UserRoutes>
+            <DashboardLayout></DashboardLayout>
+          </UserRoutes>
+        ),
+        children: routeGenerator(userPaths),
+      },
+      {
+        path: "/seller",
+        element: (
+          <SellerRoutes>
+            <DashboardLayout></DashboardLayout>
+          </SellerRoutes>
+        ),
+        children: routeGenerator(sellerPaths),
+      },
     ],
-  },
-  {
-    path: "/user",
-    element: <DashboardLayout></DashboardLayout>,
-    children: routeGenerator(userPaths),
-  },
-  {
-    path: "/seller",
-    element: <DashboardLayout></DashboardLayout>,
-    children: routeGenerator(sellerPaths),
   },
 ]);
 

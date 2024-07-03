@@ -10,6 +10,7 @@ import { Link } from "react-router-dom";
 import { useAppSelector } from "../../redux/hooks";
 import { useCurrentUser } from "../../redux/features/auth/authSlice";
 import useUpdateCartQuantity from "../../utils/updateQuantity";
+import { TProduct } from "../../types/product.type";
 
 interface CartProps {
   isOpen: boolean;
@@ -25,6 +26,11 @@ const CartModal = ({ isOpen, setIsOpen }: CartProps) => {
   const handleDeleteCart = (id: string) => {
     deleteCart(id);
   };
+
+  const totalCost = cartData?.data.reduce(
+    (acc: number, product: TProduct) => acc + product.totalCost,
+    0
+  );
 
   return (
     <div>
@@ -83,7 +89,7 @@ const CartModal = ({ isOpen, setIsOpen }: CartProps) => {
               <div>
                 <div className="flex justify-between mb-3">
                   <h1>Total</h1>
-                  <p className="text-red-800 text-2xl">${500}</p>
+                  <p className="text-red-800 text-2xl">${totalCost}</p>
                 </div>
                 <div className="flex justify-between">
                   <Link onClick={() => setIsOpen(false)} to="/checkout">

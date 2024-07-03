@@ -20,7 +20,7 @@ const SearchedProducts = () => {
         variant="filled"
       />
       {searchedData?.data.length > 0 && (
-        <div className="absolute w-full z-50">
+        <div className="absolute w-full z-50 border">
           <h1 className="text-end bg-gray-300 p-1">Products</h1>
           <div>
             {searchedData?.data.map((search: TProduct) => (

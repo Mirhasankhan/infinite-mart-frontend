@@ -97,6 +97,7 @@ const ManageProfile = () => {
                     name="name"
                     label="Your Name"
                     defaultValue={name}
+                    readOnly
                   />
                 </Col>
                 <Col span={12}>
@@ -106,6 +107,7 @@ const ManageProfile = () => {
                     name="email"
                     label="Your Email"
                     defaultValue={email ? email : ""}
+                    readOnly
                   />
                 </Col>
                 <Col span={12}>
@@ -124,7 +126,7 @@ const ManageProfile = () => {
                     render={({ field: { onChange, value, ...field } }) => (
                       <Form.Item label="Your Image">
                         <Input
-                          className="bg-gray-100 border-2 border-green-200"
+                          className="bg-gray-100 border-2 border-gray-300"
                           type="file"
                           value={value?.fileName}
                           {...field}
@@ -134,7 +136,7 @@ const ManageProfile = () => {
                     )}
                   />
                 </Col>
-                <Col className="" span={12}>
+                <Col span={12}>
                   <CustomSelect
                     label="Province"
                     name="province"

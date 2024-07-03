@@ -38,12 +38,12 @@ const Header = () => {
         <div className="flex gap-5">
           <Link to="track-order">Order Tracking</Link>
           <Link to="/user/my-wishlist">My Wishlist</Link>
-          <Link to="/seller/register-seller">
+          <Link to="/register-seller">
             <button>Become Seller</button>
           </Link>
         </div>
       </div>
-      <div className="hidden md:grid grid-cols-6 gap-6 px-3 md:px-14 mt-3">
+      <div className=" hidden md:grid grid-cols-6 gap-6 px-3 md:px-14 mt-3 mb-3">
         <Link to="/" className="col-span-1 flex items-center">
           <img className="h-12 w-12 rounded-full" src={logo} alt="" />
           <h1

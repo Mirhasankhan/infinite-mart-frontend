@@ -7,7 +7,7 @@ import useAddProductToCart from "../../utils/addToCart";
 import useAddProductToWishlist from "../../utils/useAddToWishlist";
 
 const Card = ({ product }: { product: TProduct }) => {
-  const { image, productName, price } = product;
+  const { image, productName, price, sold, category } = product;
   const { handleAddToCart } = useAddProductToCart();
   const { handleAddToWishlist } = useAddProductToWishlist();
 
@@ -20,14 +20,21 @@ const Card = ({ product }: { product: TProduct }) => {
       >
         <img className="h-60 w-full" src={image.imageUrl} alt="" />
         <div className="px-3 py-3 flex-grow flex flex-col justify-between">
-          <p>${price}</p>
-          <Rating
-            className="mt-auto"
-            style={{ maxWidth: 80 }}
-            // value={Math.round(testi.rating)}
-            value={4}
-            readOnly
-          />
+          <div className="flex justify-between">
+            <p className="text-red-500 font-medium">${price}</p>
+            <h1 className="border rounded-lg p-0.5 text-sm hover:bg-green-400 hover:text-white">
+              {category}
+            </h1>
+          </div>
+          <div className="flex items-center my-1 gap-1">
+            <Rating
+              className="mt-auto"
+              style={{ maxWidth: 80 }}
+              value={4}
+              readOnly
+            />
+            <h1 className="text-sm">({sold ? sold : "0"})</h1>
+          </div>
           <h1>
             {productName.length > 20
               ? productName.substring(0, 20) + "..."

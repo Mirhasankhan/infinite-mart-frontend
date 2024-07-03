@@ -28,7 +28,7 @@ const ProductDescriptions = ({ product }: { product: TProduct }) => {
                   className="mt-auto"
                   style={{ maxWidth: 80 }}
                   // value={Math.round(testi.rating)}
-                  value={4}
+                  value={review.rating}
                   readOnly
                 />
               </div>
