@@ -27,9 +27,10 @@ const Footer = () => {
           </Link>
         </div>
         <p className="py-5">
-          Lorem ipsum dolor sit amet, con sectetur <br /> adipiscing elit.
-          Quisque id luctus mauris, <br /> eget varius libero. Vestibulum metus
-          leo.
+          At Infinite Mart, our journey began with a simple idea: to create a
+          seamless online shopping experience for everyone. We set out to
+          revolutionize the e-commerce industry with a focus on customer
+          satisfaction, quality products, and innovative technology.
         </p>
         <div className="flex gap-2 items-center">
           <MdOutlineAttachEmail></MdOutlineAttachEmail>

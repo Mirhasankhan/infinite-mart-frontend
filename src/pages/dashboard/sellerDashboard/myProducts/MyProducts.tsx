@@ -36,7 +36,7 @@ const MyProducts = () => {
                   <th>Actions</th>
                 </tr>
               </thead>
-              <tbody>
+              <tbody className="bg-white">
                 {data?.data.map((order: TProduct) => (
                   <tr key={order._id}>
                     <td>
@@ -72,7 +72,10 @@ const MyProducts = () => {
                     </th>
                     <td>
                       {!order.flashSale ? (
-                        <Button onClick={() => handleAddToFlash(order._id)}>
+                        <Button
+                          className="bg-green-400 text-white font-medium"
+                          onClick={() => handleAddToFlash(order._id)}
+                        >
                           Add To Flash
                         </Button>
                       ) : (

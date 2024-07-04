@@ -83,8 +83,8 @@ const AddProduct = () => {
 
   return (
     <div>
-      <h1>Add New Product</h1>
-      <div className="shadow-xl border rounded-lg p-4 mt-6">
+      <h1 className="text-xl font-medium">Add New Product</h1>
+      <div className="shadow-xl bg-white border rounded-lg p-4 mt-6">
         <Row justify="center">
           <Col span={24}>
             <CustomForm onSubmit={onSubmit}>

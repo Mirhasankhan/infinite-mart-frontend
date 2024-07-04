@@ -18,8 +18,8 @@ const Sidebar = () => {
   const { role, email } = useAppSelector(useCurrentUser);
   const currentRole = role == true ? "seller" : "user";
   const { data: userData } = useActiveUserQuery(email);
-  const profileImage = userData?.data.image
-    ? userData.data.image.imageUrl
+  const profileImage = userData?.data?.image
+    ? userData?.data?.image.imageUrl
     : profile;
 
   let sidebarItems;

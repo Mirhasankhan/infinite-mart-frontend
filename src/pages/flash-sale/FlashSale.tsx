@@ -27,7 +27,7 @@ const FlashSale = () => {
         Flash Sale
       </h1>
       <div className="flex justify-between items-center pb-4">
-        <div className="md:flex gap-24">
+        <div className="md:flex gap-24 items-center">
           <h1 className="text-red-400 pb-3">On Sale Now</h1>
           <div className="flex gap-2 items-center">
             Ending In : <CountdownTimer targetDate={targetDate} />

@@ -1,4 +1,5 @@
 import AddProduct from "../pages/dashboard/sellerDashboard/addProduct/AddProduct";
+import SellerDashboard from "../pages/dashboard/sellerDashboard/dashboard/SellerDashboard";
 import MyProducts from "../pages/dashboard/sellerDashboard/myProducts/MyProducts";
 import ManageProfile from "../pages/dashboard/userDashboard/watchList/ManageProfile";
 
@@ -6,7 +7,7 @@ export const sellerPaths = [
   {
     name: "Dashboard",
     path: "dashboard",
-    element: "seller dashboard",
+    element: <SellerDashboard></SellerDashboard>,
   },
   {
     name: "Add Product",

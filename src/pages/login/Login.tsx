@@ -7,6 +7,9 @@ import { useAppDispatch } from "../../redux/hooks";
 import { useLoginMutation } from "../../redux/features/auth/authApi";
 import { setUser } from "../../redux/features/auth/authSlice";
 import { toast } from "sonner";
+import loginImage from "../../assets/images/login.png";
+import SocialLogin from "../../components/ui/SocialLogin";
+import { FcGoogle } from "react-icons/fc";
 
 const Login = () => {
   const [loginAccount] = useLoginMutation();
@@ -33,12 +36,12 @@ const Login = () => {
   };
 
   return (
-    <div className="mb-8">
+    <div className="pb-8 bg-gray-100">
       <h1 className="text-xl md:text-3xl font-semibold text-center py-4 my-6">
         Log Into <span className="text-orange-400">YourAccount</span>
       </h1>
-      <div className=" w-2/4 mx-auto ">
-        <div className="rounded-lg shadow-lg p-6 h-80 w-full border">
+      <div className="grid grid-cols-1 md:grid-cols-2 px-3 md:px-48">
+        <div className="rounded-l-lg bg-white p-6  w-full border">
           <Row justify="center">
             <Col span={24}>
               <CustomForm onSubmit={onSubmit}>
@@ -72,7 +75,7 @@ const Login = () => {
                 >
                   Login
                 </Button>
-                <h1 className="pt-3">
+                <h1 className="pb-6 pt-2">
                   Don't have an account?
                   <Link to="/register" className="text-blue-600">
                     Create New Account
@@ -81,6 +84,18 @@ const Login = () => {
               </CustomForm>
             </Col>
           </Row>
+          <div className="divider">Or join with</div>
+          <div className="cursor-pointer flex gap-2 items-center w-full rounded-md border justify-center py-2">
+            <FcGoogle className="text-xl"></FcGoogle>
+            <SocialLogin></SocialLogin>
+          </div>
+        </div>
+        <div className="hidden md:block">
+          <img
+            className="h-[450px] w-full rounded-r-lg"
+            src={loginImage}
+            alt=""
+          />
         </div>
       </div>
     </div>
