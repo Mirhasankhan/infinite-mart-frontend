@@ -19,7 +19,7 @@ const SellerDashboard = () => {
   console.log(data?.data);
 
   const availableQuantity = data?.data.reduce(
-    (acc: product, product: TProduct) => acc + product.quantity,
+    (acc: number, product: TProduct) => acc + product.quantity,
     0
   );
   const flashSale = data?.data.filter(
@@ -30,11 +30,11 @@ const SellerDashboard = () => {
   );
 
   const totalSold = soldProducts?.reduce(
-    (acc: product, product: TProduct) => acc + product.sold,
+    (acc: number, product: TProduct) => acc + product.sold,
     0
   );
   const soldAmount = soldProducts?.reduce(
-    (acc: product, product: TProduct) => acc + product.sold * +product.price,
+    (acc: number, product: TProduct) => acc + product.sold * +product.price,
     0
   );
   console.log(soldAmount);
