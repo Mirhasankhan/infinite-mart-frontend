@@ -24,6 +24,13 @@ const productApi = baseApi.injectEndpoints({
       }),
       providesTags: ["products"],
     }),
+    categoryProducts: builder.query({
+      query: (category) => ({
+        url: `product/categoryProduct?category=${category}`,
+        method: "GET",
+      }),
+      providesTags: ["products"],
+    }),
     singleSupply: builder.query({
       query: (id) => ({
         url: `/supplies/${id}`,
@@ -61,6 +68,7 @@ export const {
   useProductsQuery,
   useDeleteMutation,
   useSingleSupplyQuery,
+  useCategoryProductsQuery,
   useAddReviewMutation,
   useSearchedProductsQuery,
   useUpdateFlashMutation,

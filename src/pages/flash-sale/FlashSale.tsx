@@ -23,7 +23,7 @@ const FlashSale = () => {
 
   return (
     <div className="px-3 md:px-14 my-8">
-      <h1 className="font-semibold text-xl md:text-2xl mb-4 pb-2 border-b">
+      <h1 className="font-medium text-xl md:text-2xl mb-4 pb-2 border-b">
         Flash Sale
       </h1>
       <div className="flex justify-between items-center pb-4">

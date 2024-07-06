@@ -4,6 +4,11 @@ import { useLocation } from "react-router-dom";
 import "@smastrom/react-rating/style.css";
 import ProductDescriptions from "./ProductDescriptions";
 import useAddProductToCart from "../../utils/addToCart";
+import RelatedProduct from "./RelatedProduct";
+import { useCategoryProductsQuery } from "../../redux/features/products/prouductManagement.api";
+import { TProduct } from "../../types/product.type";
+import { Button } from "antd";
+import useAddProductToWishlist from "../../utils/useAddToWishlist";
 
 const ProductDetails = () => {
   useEffect(() => {
@@ -12,8 +17,10 @@ const ProductDetails = () => {
   const [transform, setTransform] = useState("scale(1)");
   const [origin, setOrigin] = useState("center center");
   const { handleAddToCart } = useAddProductToCart();
+  const { handleAddToWishlist } = useAddProductToWishlist();
   const location = useLocation();
   const { product } = location.state;
+  const { data: categoryData } = useCategoryProductsQuery(product.category);
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     const { left, top, width, height } =
@@ -43,7 +50,7 @@ const ProductDetails = () => {
   return (
     <div className="bg-gray-300 px-3 md:px-24 py-6 mt-6">
       <div className="bg-white p-4 rounded-md">
-        <div className=" grid grid-cols-5 gap-6 rounded-md">
+        <div className="grid grid-cols-5 gap-6 rounded-md">
           <div className="col-span-5 md:col-span-2">
             <div
               className="h-64 md:h-[384px] rounded-md w-full overflow-hidden hover:cursor-zoom-in"
@@ -78,19 +85,33 @@ const ProductDetails = () => {
             </div>
             <p className="py-4">Quantity: ({quantity} Available)</p>
             <div className="flex gap-6">
-              <button
+              <Button
                 onClick={() => handleAddToCart(product)}
-                className="bg-green-400 px-3 py-2 font-medium rounded-md text-white"
+                className="bg-green-400  font-medium  text-white"
               >
                 Add To Cart
-              </button>
-              <button className="bg-orange-400 px-3 py-2 rounded-md text-white">
+              </Button>
+              <Button
+                onClick={() => handleAddToWishlist(product)}
+                className="bg-orange-400  font-medium  text-white"
+              >
                 Add To Wishlist
-              </button>
+              </Button>
             </div>
           </div>
         </div>
-        <ProductDescriptions product={product}></ProductDescriptions>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <ProductDescriptions product={product}></ProductDescriptions>
+          <div>
+            <h1 className="pt-12 pb-3 text-xl font-medium">Related Products</h1>
+            {categoryData?.data.map((category: TProduct) => (
+              <RelatedProduct
+                key={category._id}
+                related={category}
+              ></RelatedProduct>
+            ))}
+          </div>
+        </div>
       </div>
     </div>
   );

@@ -19,23 +19,31 @@ const ProductDescriptions = ({ product }: { product: TProduct }) => {
       label: "Reviews",
       children: (
         <div>
-          {product?.reviews?.map((review) => (
-            <div className="border p-2 rounded-md my-3" key={review.review}>
-              <h1 className=" font-medium">Review By: {review.username}</h1>
-              <div className="flex items-center gap-3">
-                <p>Rating: </p>
-                <Rating
-                  className="mt-auto"
-                  style={{ maxWidth: 80 }}
-                  // value={Math.round(testi.rating)}
-                  value={review.rating}
-                  readOnly
-                />
-              </div>
+          {product?.reviews?.length > 0 ? (
+            <div>
+              {product?.reviews?.map((review) => (
+                <div className="border p-2 rounded-md my-3" key={review.review}>
+                  <h1 className=" font-medium">Review By: {review.username}</h1>
+                  <div className="flex items-center gap-3">
+                    <p>Rating: </p>
+                    <Rating
+                      className="mt-auto"
+                      style={{ maxWidth: 80 }}
+                      // value={Math.round(testi.rating)}
+                      value={review.rating}
+                      readOnly
+                    />
+                  </div>
 
-              <p>Review: {review.review}</p>
+                  <p>Review: {review.review}</p>
+                </div>
+              ))}
             </div>
-          ))}
+          ) : (
+            <h1 className="text-red-600">
+              There is no review for this product yet
+            </h1>
+          )}
         </div>
       ),
     },

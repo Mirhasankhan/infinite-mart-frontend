@@ -11,6 +11,7 @@ import axios from "axios";
 import { useAppSelector } from "../../../../redux/hooks";
 import { useCurrentUser } from "../../../../redux/features/auth/authSlice";
 import { useCreateProdctMutation } from "../../../../redux/features/products/prouductManagement.api";
+import { toast } from "sonner";
 
 const AddProduct = () => {
   const { name, email } = useAppSelector(useCurrentUser);
@@ -23,6 +24,10 @@ const AddProduct = () => {
   >([]);
 
   const onSubmit: SubmitHandler<FieldValues> = async (data) => {
+    if (!data.image) {
+      toast.error("Please upload product image");
+      return;
+    }
     const formData = new FormData();
     formData.append("image", data.image);
     const imgbbResponse = await axios.post(

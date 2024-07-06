@@ -12,11 +12,11 @@ import { useCurrentUser } from "../../../../redux/features/auth/authSlice";
 import { useProductsQuery } from "../../../../redux/features/products/prouductManagement.api";
 import { useAppSelector } from "../../../../redux/hooks";
 import { TProduct } from "../../../../types/product.type";
+import PieChart from "../../../../components/chart/PieChart";
 
 const SellerDashboard = () => {
   const { email } = useAppSelector(useCurrentUser);
   const { data } = useProductsQuery(email);
-  console.log(data?.data);
 
   const availableQuantity = data?.data.reduce(
     (acc: number, product: TProduct) => acc + product.quantity,
@@ -82,9 +82,9 @@ const SellerDashboard = () => {
       </div>
       <h1 className="text-2xl font-medium py-4">Overview</h1>
       {data?.data?.length > 0 ? (
-        <div className="w-[100%] col-span-3">
+        <div className="w-[100%] col-span-3 flex gap-1">
           <BarChart
-            width={850}
+            width={550}
             height={420}
             data={infos}
             margin={{
@@ -110,6 +110,7 @@ const SellerDashboard = () => {
               activeBar={<Rectangle fill="gold" stroke="purple" />}
             />
           </BarChart>
+          <PieChart></PieChart>
         </div>
       ) : (
         <p className="text-xl font-semibold text-red-500">

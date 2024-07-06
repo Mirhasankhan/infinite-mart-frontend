@@ -25,7 +25,7 @@ const MyProducts = () => {
         {data?.data.length > 0 ? (
           <div className="overflow-x-auto">
             <table className="table mt-6">
-              <thead className="bg-black text-white">
+              <thead className="bg-cyan-500 text-white">
                 <tr>
                   <th>Product Detail</th>
                   <th>Seller Detail</th>

@@ -6,7 +6,8 @@ import { TProduct } from "../../types/product.type";
 import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
 import PayOut from "../../components/ui/PayOut";
-// import { useActiveUserQuery } from "../../redux/features/auth/authApi";
+import { useActiveUserQuery } from "../../redux/features/auth/authApi";
+import { Link } from "react-router-dom";
 // import { Link } from "react-router-dom";
 
 const striprePromise = loadStripe(import.meta.env.VITE_Stripe_Gateway_PK);
@@ -14,62 +15,51 @@ const striprePromise = loadStripe(import.meta.env.VITE_Stripe_Gateway_PK);
 const ProceedPayment = () => {
   const { email } = useAppSelector(useCurrentUser);
   const { data: cartData } = useCartsQuery(email);
-  // const { data: userData, isFetching, isLoading } = useActiveUserQuery(email);
+  const { data: userData } = useActiveUserQuery(email);
   const totalCost = cartData?.data.reduce(
     (acc: number, product: TProduct) => acc + product.totalCost,
     0
   );
 
-  // if (isLoading || isFetching) {
-  //   return <div>Loading...</div>;
-  // }
-  // const { phone = "", name = "", address = {} } = userData.data || {};
-  // const detailsAddress = address["0"] || {};
-  // const province = detailsAddress["0"]?.province || "";
-  // const city = detailsAddress["0"]?.city || "";
-  // const street = detailsAddress["0"]?.street || "";
-  // console.log(city);
-  // console.log(detailsAddress.city);
+  const username = userData?.data?.name || "";
+  const phone = userData?.data?.phone || "";
+  const province = userData?.data?.address?.province || "";
+  const city = userData?.data?.address?.city || "";
+  const street = userData?.data?.address?.street || "";
+
+  const userAddress = {
+    phone,
+    province,
+    city,
+    street,
+  };
 
   return (
-    <div className="px-3 md:px-14 my-12">
+    <div className="px-3 md:px-14 py-6 bg-gray-100">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-        {/* <div>
-          <h1>Billing Details</h1>
+        <div className="bg-white h-80 p-5 rounded-md">
+          <h1 className="text-xl md:text-2xl font-medium py-4 underline text-green-400">
+            Billing Details
+          </h1>
           <div>
             <h1>
-              Deliver To: {name}, {email}
+              Deliver To: {username}, {email}
             </h1>
-            <div>
-              Contact Number: {phone}
-              <Link className="text-blue-400 pl-1" to="/user/manage-profile">
-                Change
-              </Link>
-            </div>
+            <div>Contact Number: {phone}</div>
             <h1>
-              <div>
-                Province: {province}
-                <Link className="text-blue-400 pl-1" to="/user/manage-profile">
-                  Change
-                </Link>
-              </div>
-              <div>
-                City/Town: {city}
-                <Link className="text-blue-400 pl-1" to="/user/manage-profile">
-                  Change
-                </Link>
-              </div>
+              <div>Province: {province}</div>
+              <div>City/Town: {city}</div>
               <div>
                 Street Address: {street}
                 <Link className="text-blue-400 pl-1" to="/user/manage-profile">
-                  Change
+                  Change billing details
                 </Link>
               </div>
             </h1>
           </div>
-        </div> */}
-        <h1>Billing Details</h1>
-        <div className="bg-gray-200 p-4 rounded-md">
+        </div>
+
+        <div className="bg-white p-4 rounded-md">
           <div className="flex justify-between text-xl font-medium">
             <h1>Product</h1>
             <h1>Subtotal</h1>
@@ -115,6 +105,7 @@ const ProceedPayment = () => {
 
           <Elements stripe={striprePromise}>
             <PayOut
+              userAddress={userAddress}
               selectedProduct={cartData?.data}
               totalCost={totalCost}
             ></PayOut>

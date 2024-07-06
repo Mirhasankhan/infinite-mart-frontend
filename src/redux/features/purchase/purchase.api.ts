@@ -8,14 +8,21 @@ const purchaseApi = baseApi.injectEndpoints({
         method: "POST",
         body: productInfo,
       }),
-      invalidatesTags: ["cart"],
+      invalidatesTags: ["purchase"],
     }),
     purchasedProducts: builder.query({
       query: (email) => ({
         url: `purchase/allPurchase?email=${email}`,
         method: "GET",
       }),
-      providesTags: ["products"],
+      providesTags: ["purchase"],
+    }),
+    orderedProducts: builder.query({
+      query: (email) => ({
+        url: `purchase/allOrders?email=${email}`,
+        method: "GET",
+      }),
+      providesTags: ["purchase"],
     }),
     singleSupply: builder.query({
       query: (id) => ({
@@ -23,13 +30,12 @@ const purchaseApi = baseApi.injectEndpoints({
         method: "GET",
       }),
     }),
-    updateSupplyStatus: builder.mutation({
-      query: ({ id, isApplied }) => ({
-        url: `/supplies/${id}`,
-        method: "PUT",
-        body: { isApplied },
+    updatePurchaseStatus: builder.mutation({
+      query: (id) => ({
+        url: `purchase/${id}/status`,
+        method: "PATCH",
       }),
-      invalidatesTags: ["products"],
+      invalidatesTags: ["purchase"],
     }),
     delete: builder.mutation({
       query: (id) => ({
@@ -46,5 +52,6 @@ export const {
   usePurchasedProductsQuery,
   useDeleteMutation,
   useSingleSupplyQuery,
-  useUpdateSupplyStatusMutation,
+  useUpdatePurchaseStatusMutation,
+  useOrderedProductsQuery,
 } = purchaseApi;

@@ -4,8 +4,9 @@ import { useCurrentUser } from "../../redux/features/auth/authSlice";
 import { sidebarItemsGenerator } from "../../utils/SidebarItemsGenerator";
 import { userPaths } from "../../routes/user.routes";
 import { sellerPaths } from "../../routes/seller.routes";
-import profile from "../../assets/images/profile.png";
-import { useActiveUserQuery } from "../../redux/features/auth/authApi";
+
+import { Link } from "react-router-dom";
+import logo from "../../assets/images/logo.png";
 
 const { Sider } = Layout;
 
@@ -15,12 +16,8 @@ const userRole = {
 };
 
 const Sidebar = () => {
-  const { role, email } = useAppSelector(useCurrentUser);
+  const { role } = useAppSelector(useCurrentUser);
   const currentRole = role == true ? "seller" : "user";
-  const { data: userData } = useActiveUserQuery(email);
-  const profileImage = userData?.data?.image
-    ? userData?.data?.image.imageUrl
-    : profile;
 
   let sidebarItems;
 
@@ -38,13 +35,12 @@ const Sidebar = () => {
 
   return (
     <Sider
-      className="my-12"
       breakpoint="lg"
       collapsedWidth="0"
       width={250}
       style={{
         backgroundColor: "white",
-        borderRadius: "10px",
+
         overflow: "hidden",
       }}
     >
@@ -52,21 +48,22 @@ const Sidebar = () => {
         style={{
           color: "black",
           textAlign: "center",
-          height: "11rem",
+          height: "4rem",
           display: "flex",
-          justifyContent: "center",
-          // alignItems: "center",
+          justifyContent: "left",
+          alignItems: "center",
+          border: "0.2px dotted lightgray",
         }}
       >
-        <div className="bg-orange-500 w-full flex flex-col items-center text-white">
-          <img
-            className="w-16 h-16 mt-6 rounded-full"
-            src={profileImage}
-            alt=""
-          />
-          <h1 className="my-2 font-medium">{userData?.data.name}</h1>
-          <h1>{userData?.data.email}</h1>
-        </div>
+        <Link to="/" className="col-span-1 flex items-center">
+          <img className="h-10 w-10 rounded-full" src={logo} alt="" />
+          <h1
+            style={{ fontFamily: "Poppins, sans-serif" }}
+            className="font-bold"
+          >
+            InfiniteMart
+          </h1>
+        </Link>
       </div>
       <Menu
         theme="light"

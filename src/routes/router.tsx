@@ -72,25 +72,25 @@ const router = createBrowserRouter([
         path: "about-us",
         element: <About></About>,
       },
-      {
-        path: "/user",
-        element: (
-          <UserRoutes>
-            <DashboardLayout></DashboardLayout>
-          </UserRoutes>
-        ),
-        children: routeGenerator(userPaths),
-      },
-      {
-        path: "/seller",
-        element: (
-          <SellerRoutes>
-            <DashboardLayout></DashboardLayout>
-          </SellerRoutes>
-        ),
-        children: routeGenerator(sellerPaths),
-      },
     ],
+  },
+  {
+    path: "/user",
+    element: (
+      <UserRoutes>
+        <DashboardLayout></DashboardLayout>
+      </UserRoutes>
+    ),
+    children: routeGenerator(userPaths),
+  },
+  {
+    path: "/seller",
+    element: (
+      <SellerRoutes>
+        <DashboardLayout></DashboardLayout>
+      </SellerRoutes>
+    ),
+    children: routeGenerator(sellerPaths),
   },
 ]);
 

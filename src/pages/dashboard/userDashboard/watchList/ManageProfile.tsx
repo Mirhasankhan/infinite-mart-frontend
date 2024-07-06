@@ -12,6 +12,7 @@ import {
 import CustomSelect from "../../../../components/form/CustomSelect";
 import { provinceData, selectProvince } from "../../../../utils/districts";
 import { useEffect, useState } from "react";
+import { toast } from "sonner";
 
 const ManageProfile = () => {
   const { email } = useAppSelector(useCurrentUser);
@@ -48,6 +49,11 @@ const ManageProfile = () => {
   }, [selectedProvince]);
 
   const onSubmit: SubmitHandler<FieldValues> = async (data) => {
+    if (!data.image) {
+      toast.error("Please upload your image");
+      return;
+    }
+
     const formData = new FormData();
     formData.append("image", data.image);
     const imgbbResponse = await axios.post(
@@ -70,6 +76,7 @@ const ManageProfile = () => {
           name: data.name,
           email: data.email,
           phone: data.phone,
+          street: data.street,
         },
       },
     };
@@ -84,7 +91,7 @@ const ManageProfile = () => {
 
   return (
     <div>
-      <h1>Manage Your Profile</h1>
+      <div></div>
       <div className="shadow-xl border rounded-lg p-4 mt-6 bg-white">
         <Row justify="center">
           <Col span={24}>
@@ -113,7 +120,7 @@ const ManageProfile = () => {
                 <Col span={12}>
                   <CustomInput
                     placeholder="contact number"
-                    type="text"
+                    type="number"
                     name="phone"
                     label="Phone"
                     defaultValue={phone ? phone : ""}

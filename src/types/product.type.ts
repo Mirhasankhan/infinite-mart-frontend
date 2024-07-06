@@ -16,5 +16,8 @@ export type TProduct = {
   totalCost: number;
   seller: string;
   sold: number;
+  date: string;
+  status: string;
   reviews: [{ username: string; rating: number; review: string }];
+  address: { city: string; province: string; street: string };
 };

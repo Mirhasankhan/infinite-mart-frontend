@@ -36,7 +36,7 @@ const Header = () => {
           </div>
         </div>
         <div className="flex gap-5">
-          <Link to="track-order">Order Tracking</Link>
+          <Link to="/">Order Tracking</Link>
           <Link to="/user/my-wishlist">My Wishlist</Link>
           <Link to="/register-seller">
             <button>Become Seller</button>
@@ -66,7 +66,7 @@ const Header = () => {
         </div>
         <ManageUser></ManageUser>
       </div>
-      <div className="flex justify-between items-center px-3 border-b md:hidden">
+      <div className="shrink-0 flex justify-between items-center px-3 border-b md:hidden">
         <div>
           <Link to="/" className="col-span-1 flex items-center">
             <img className="h-12 w-12 rounded-full" src={logo} alt="" />
@@ -91,7 +91,7 @@ const Header = () => {
           <SearchedProducts></SearchedProducts>
         </div>
       )}
-      <div className="fixed bottom-0 left-0 right-0 border-t bg-white z-50 p-2 shadow-md flex justify-between px-3 md:hidden items-center text-center">
+      <div className="fixed bottom-0 left-0 right-0 border-t bg-white z-50 p-2 px-3 shadow-md flex justify-between  md:hidden items-center text-center">
         <Link to="/" className="flex flex-col items-center">
           <IoHome className="text-green-600 text-xl"></IoHome>
           <p className="text-sm">Home</p>

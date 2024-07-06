@@ -22,7 +22,7 @@ const Card = ({ product }: { product: TProduct }) => {
         <div className="px-3 py-3 flex-grow flex flex-col justify-between">
           <div className="flex justify-between">
             <p className="text-red-500 font-medium">${price}</p>
-            <h1 className="border rounded-lg p-0.5 text-sm hover:bg-green-400 hover:text-white">
+            <h1 className="hidden md:block border rounded-lg p-0.5 text-sm hover:bg-green-400 hover:text-white">
               {category}
             </h1>
           </div>

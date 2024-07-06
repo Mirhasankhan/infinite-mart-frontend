@@ -56,7 +56,7 @@ const MyWatchList = () => {
                       handleAddToCart(list);
                       handleDeleteWishlist(list._id);
                     }}
-                    className="bg-green-400 px-3 py-2 text-white"
+                    className="bg-green-400 rounded-md font-medium px-3 py-2 text-white"
                   >
                     Add To Cart
                   </button>
