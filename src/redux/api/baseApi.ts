@@ -7,6 +7,6 @@ export const baseApi = createApi({
   baseQuery: fetchBaseQuery({
     baseUrl: "https://infinite-mart-server.vercel.app/api/v1",
   }),
-  tagTypes: ["products", "wishlist", "cart", "purchase"],
+  tagTypes: ["products", "wishlist", "cart", "purchase", "users"],
   endpoints: () => ({}),
 });

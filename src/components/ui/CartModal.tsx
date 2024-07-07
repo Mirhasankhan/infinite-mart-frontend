@@ -93,10 +93,12 @@ const CartModal = ({ isOpen, setIsOpen }: CartProps) => {
                 </div>
                 <div className="flex justify-between">
                   <Link onClick={() => setIsOpen(false)} to="/checkout">
-                    <Button className="bg-green-400">Checkout</Button>
+                    <Button className="bg-green-400 text-white font-medium">
+                      Checkout
+                    </Button>
                   </Link>
                   <Link onClick={() => setIsOpen(false)} to="/cart">
-                    <Button>View Cart</Button>
+                    <Button className="font-medium">View Cart</Button>
                   </Link>
                 </div>
               </div>

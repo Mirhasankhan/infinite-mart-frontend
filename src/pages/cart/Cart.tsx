@@ -82,7 +82,7 @@ const Cart = () => {
           <div className="bg-white p-4 mt-4 border-t-4 border-blue-600 md:flex justify-between">
             <div className="flex items-center gap-2">
               <MdCheckBoxOutlineBlank className="text-blue-300 text-xl"></MdCheckBoxOutlineBlank>
-              <h1>No Product have been added in wishlist</h1>
+              <h1>No Product have been added in cart</h1>
             </div>
             <Link to={"/"}>
               <Button className="bg-green-400 text-white font-medium mt-2">

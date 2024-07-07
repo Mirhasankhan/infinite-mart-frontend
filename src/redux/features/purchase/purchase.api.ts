@@ -8,7 +8,7 @@ const purchaseApi = baseApi.injectEndpoints({
         method: "POST",
         body: productInfo,
       }),
-      invalidatesTags: ["purchase"],
+      invalidatesTags: ["cart"],
     }),
     purchasedProducts: builder.query({
       query: (email) => ({

@@ -1,8 +1,7 @@
-import { Button, Col, Form, Input, Row } from "antd";
+import { Button, Col, Row } from "antd";
 import CustomForm from "../../../../components/form/CustomForm";
 import CustomInput from "../../../../components/form/CustomInput";
-import { Controller, FieldValues, SubmitHandler } from "react-hook-form";
-import axios from "axios";
+import { FieldValues, SubmitHandler } from "react-hook-form";
 import { useAppSelector } from "../../../../redux/hooks";
 import { useCurrentUser } from "../../../../redux/features/auth/authSlice";
 import {
@@ -12,7 +11,8 @@ import {
 import CustomSelect from "../../../../components/form/CustomSelect";
 import { provinceData, selectProvince } from "../../../../utils/districts";
 import { useEffect, useState } from "react";
-import { toast } from "sonner";
+import profile from "../../../../assets/images/profile.png";
+import UploadImage from "../../../../components/manageProfile/UploadImage";
 
 const ManageProfile = () => {
   const { email } = useAppSelector(useCurrentUser);
@@ -23,6 +23,10 @@ const ManageProfile = () => {
   const [cityOptions, setCityOptions] = useState<
     { value: string; label: string }[]
   >([]);
+
+  const profileImage = userData?.data?.image
+    ? userData?.data?.image.imageUrl
+    : profile;
 
   const handleChangeProvince = (value: string) => {
     setSelectedProvince(value);
@@ -49,28 +53,10 @@ const ManageProfile = () => {
   }, [selectedProvince]);
 
   const onSubmit: SubmitHandler<FieldValues> = async (data) => {
-    if (!data.image) {
-      toast.error("Please upload your image");
-      return;
-    }
-
-    const formData = new FormData();
-    formData.append("image", data.image);
-    const imgbbResponse = await axios.post(
-      `https://api.imgbb.com/1/upload?key=${
-        import.meta.env.VITE_IMAGE_UPLOAD_TOKEN
-      }`,
-      formData
-    );
-    const imgUrl = imgbbResponse.data.data.url;
     const updatedUser = {
       user: {
         _id: _id,
         updatedUser: {
-          image: {
-            ...data.image,
-            imageUrl: imgUrl,
-          },
           city: selectedCity,
           province: selectedProvince,
           name: data.name,
@@ -91,8 +77,14 @@ const ManageProfile = () => {
 
   return (
     <div>
-      <div></div>
-      <div className="shadow-xl border rounded-lg p-4 mt-6 bg-white">
+      <div className="bg-cyan-500 p-6 rounded-md flex justify-between items-center">
+        <img className="w-24 h-24 rounded-full" src={profileImage} alt="" />
+        <div>
+          <UploadImage></UploadImage>
+        </div>
+      </div>
+      <h1 className="text-xl py-6 font-medium">Billing Information </h1>
+      <div className="shadow-xl border rounded-lg p-4 bg-white">
         <Row justify="center">
           <Col span={24}>
             <CustomForm onSubmit={onSubmit}>
@@ -126,21 +118,12 @@ const ManageProfile = () => {
                     defaultValue={phone ? phone : ""}
                   />
                 </Col>
-
-                <Col span={24} md={{ span: 12 }} lg={{ span: 12 }}>
-                  <Controller
-                    name="image"
-                    render={({ field: { onChange, value, ...field } }) => (
-                      <Form.Item label="Your Image">
-                        <Input
-                          className="bg-gray-100 border-2 border-gray-300"
-                          type="file"
-                          value={value?.fileName}
-                          {...field}
-                          onChange={(e) => onChange(e.target.files?.[0])}
-                        />
-                      </Form.Item>
-                    )}
+                <Col span={12}>
+                  <CustomInput
+                    placeholder="address in detail"
+                    type="text"
+                    name="street"
+                    label="Street Address"
                   />
                 </Col>
                 <Col span={12}>
@@ -150,19 +133,13 @@ const ManageProfile = () => {
                     options={selectProvince}
                     onChange={handleChangeProvince}
                   />
+                </Col>
+                <Col span={12}>
                   <CustomSelect
                     label="City/Town"
                     name="city"
                     options={cityOptions}
                     onChange={handleChangeCity}
-                  />
-                </Col>
-                <Col span={12}>
-                  <CustomInput
-                    placeholder="address in detail"
-                    type="text"
-                    name="street"
-                    label="Street Address"
                   />
                 </Col>
               </Row>
@@ -171,7 +148,7 @@ const ManageProfile = () => {
                 className="w-full bg-orange-400 text-white font-semibold"
                 htmlType="submit"
               >
-                Update Your Profile
+                Update Profile Info
               </Button>
             </CustomForm>
           </Col>

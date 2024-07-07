@@ -29,28 +29,28 @@ const MyWatchList = () => {
           <div>
             {data?.data.map((list: TProduct) => (
               <div
-                className="grid grid-cols-2 my-6 border-b pb-6"
+                className="grid grid-cols-2 my-6 border-b rounded-md py-3 px-2 bg-white"
                 key={list._id}
               >
-                <div className="col-span-1 flex items-center gap-4">
+                <div className="col-span-1 flex items-center gap-4 ">
                   <img
                     className="h-16 w-16 rounded-lg"
                     src={list.image.imageUrl}
                     alt=""
                   />
                   <div>
-                    <h1>{list.productName}</h1>
+                    <h1 className="font-medium">{list.productName}</h1>
                     <p>Seller: {list.seller}</p>
                     <button
                       onClick={() => handleDeleteWishlist(list._id)}
-                      className="text-black text-2xl"
+                      className="text-red-600 text-2xl"
                     >
                       <MdDeleteOutline></MdDeleteOutline>
                     </button>
                   </div>
                 </div>
                 <div className="col-span-1 flex justify-between items-center">
-                  <h1>${list.price}</h1>
+                  <h1 className="text-red-500 text-xl">${list.price}</h1>
                   <button
                     onClick={() => {
                       handleAddToCart(list);

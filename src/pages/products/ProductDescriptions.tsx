@@ -21,8 +21,8 @@ const ProductDescriptions = ({ product }: { product: TProduct }) => {
         <div>
           {product?.reviews?.length > 0 ? (
             <div>
-              {product?.reviews?.map((review) => (
-                <div className="border p-2 rounded-md my-3" key={review.review}>
+              {product?.reviews?.map((review, index) => (
+                <div className="border p-2 rounded-md my-3" key={index}>
                   <h1 className=" font-medium">Review By: {review.username}</h1>
                   <div className="flex items-center gap-3">
                     <p>Rating: </p>
