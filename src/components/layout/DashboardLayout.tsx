@@ -36,7 +36,7 @@ const DashboardLayout = () => {
           <div>
             <h1 className="font-medium">{userData?.data?.email}</h1>
           </div>
-          <div className="flex gap-6 text-4xl">
+          <div className="flex md:gap-6 gap-2  text-4xl">
             <FaRegMoon className="border p-2 bg-cyan-500"></FaRegMoon>
             <MdMarkEmailUnread className="border p-2 bg-cyan-500"></MdMarkEmailUnread>
             <IoNotificationsCircleSharp className="border p-2 bg-cyan-500"></IoNotificationsCircleSharp>

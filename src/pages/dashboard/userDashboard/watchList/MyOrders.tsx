@@ -66,7 +66,9 @@ const MyOrders = () => {
                     <td>${order.price}</td>
                     <td>${order.totalCost}</td>
                     <th>
-                      <h1>{order.status}</h1>
+                      <h1 className="bg-gray-200 rounded-md p-1 font-normal">
+                        {order.status}
+                      </h1>
                     </th>
                     <th>
                       <Button

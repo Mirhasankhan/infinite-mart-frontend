@@ -5,7 +5,7 @@ import { CiSearch } from "react-icons/ci";
 import { FaCartShopping } from "react-icons/fa6";
 import { CiHeart } from "react-icons/ci";
 import { IoHome } from "react-icons/io5";
-import { TbCategory2 } from "react-icons/tb";
+import { GrProductHunt } from "react-icons/gr";
 import { RiAccountBoxFill } from "react-icons/ri";
 import { useState } from "react";
 import { RiChatDeleteFill } from "react-icons/ri";
@@ -66,13 +66,13 @@ const Header = () => {
         </div>
         <ManageUser></ManageUser>
       </div>
-      <div className="shrink-0 flex justify-between items-center px-3 border-b md:hidden">
+      <div className="flex justify-between items-center px-3 border-b md:hidden">
         <div>
           <Link to="/" className="col-span-1 flex items-center">
             <img className="h-12 w-12 rounded-full" src={logo} alt="" />
             <h1
               style={{ fontFamily: "Poppins, sans-serif" }}
-              className="font-semibold text-xl"
+              className="font-medium"
             >
               InfiniteMart
             </h1>
@@ -87,7 +87,7 @@ const Header = () => {
         </div>
       </div>
       {search && (
-        <div className=" md:hidden col-span-3 mx-3 relative">
+        <div className=" md:hidden col-span-3 px-3 relative">
           <SearchedProducts></SearchedProducts>
         </div>
       )}
@@ -100,9 +100,9 @@ const Header = () => {
           <FaCartShopping className="text-green-600 text-xl"></FaCartShopping>
           <p className="text-sm">Cart</p>
         </Link>
-        <Link to="/categories" className="flex flex-col items-center">
-          <TbCategory2 className="text-green-600 text-xl"></TbCategory2>
-          <p className="text-sm">Categories</p>
+        <Link to="/products" className="flex flex-col items-center">
+          <GrProductHunt className="text-green-600 text-xl"></GrProductHunt>
+          <p className="text-sm">Products</p>
         </Link>
         <Link to="/user/my-wishlist" className="flex flex-col items-center">
           <CiHeart className="text-green-600 text-xl"></CiHeart>

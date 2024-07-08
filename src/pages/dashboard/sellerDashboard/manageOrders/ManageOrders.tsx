@@ -68,7 +68,9 @@ const ManageOrders = () => {
                       </h1>
                     </th>
                     <th>
-                      <h1>{order.status}</h1>
+                      <h1 className="bg-gray-100 rounded-md p-1 font-normal">
+                        {order.status}
+                      </h1>
                     </th>
                     <th>
                       <Button

@@ -25,8 +25,8 @@ export const categories = [
     subCategories: ["sneakers", "boots", "sandals", "loafers"],
   },
   {
-    name: "Toys",
-    subCategories: ["dolls", "puzzles"],
+    name: "Watches",
+    subCategories: ["smartwatches", "quartz-watches", "women-watch"],
   },
   {
     name: "Telecommunications",

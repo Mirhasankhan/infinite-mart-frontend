@@ -61,7 +61,7 @@ const Cart = () => {
                       +
                     </button>
                   </div>
-                  <h1 className="text-red-800 font-medium">
+                  <h1 className="text-red-800 font-medium hidden md:block">
                     ${+cart.price * cart.cartQuantity}
                   </h1>
                   <div className="text-right text-xl">

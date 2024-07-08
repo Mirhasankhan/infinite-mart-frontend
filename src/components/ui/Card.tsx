@@ -18,7 +18,7 @@ const Card = ({ product }: { product: TProduct }) => {
         to={`/products/${product._id}`}
         className="flex flex-col h-full border hover:shadow-lg rounded-md"
       >
-        <img className="h-60 w-full" src={image.imageUrl} alt="" />
+        <img className="h-40 md:h-60 w-full" src={image.imageUrl} alt="" />
         <div className="px-3 py-3 flex-grow flex flex-col justify-between">
           <div className="flex justify-between">
             <p className="text-red-500 font-medium">${price}</p>

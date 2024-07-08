@@ -55,7 +55,7 @@ const Sidebar = () => {
           border: "0.2px dotted lightgray",
         }}
       >
-        <Link to="/" className="col-span-1 flex items-center">
+        <Link to="/" className="flex items-center">
           <img className="h-10 w-10 rounded-full" src={logo} alt="" />
           <h1
             style={{ fontFamily: "Poppins, sans-serif" }}

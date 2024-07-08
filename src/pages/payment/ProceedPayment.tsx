@@ -84,7 +84,7 @@ const ProceedPayment = () => {
                 <div className="flex items-center gap-3 border rounded-lg">
                   <h1 className="px-8">qty: {cart.cartQuantity}</h1>
                 </div>
-                <h1 className="text-red-800 font-medium">
+                <h1 className="text-red-800 font-medium hidden md:block">
                   ${+cart.price * cart.cartQuantity}
                 </h1>
               </div>

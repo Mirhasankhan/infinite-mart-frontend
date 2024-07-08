@@ -16,7 +16,7 @@ const UserDashboard = () => {
   return (
     <div>
       <h1 className="text-xl font-medium mb-3">Dashboard</h1>
-      <div className="grid grid-cols-3 gap-6">
+      <div className="grid md:grid-cols-3 grid-cols-1 gap-6">
         <div
           style={{ backgroundImage: `url(${bg1})` }}
           className="bg-cover bg-center rounded-md h-40 w-full text-white p-6"
