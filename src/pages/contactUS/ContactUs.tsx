@@ -10,7 +10,7 @@ const ContactUs = () => {
   }, []);
   return (
     <div className="px-3 md:px-14 my-12">
-      <h1 className="text-xl md:text-2xl font-bold">Contact Info</h1>
+      <h1 className="text-xl md:text-2xl font-bold pb-3">Contact Info</h1>
       <p>
         We're here to help! Whether you have a question about your order, our
         products, our return policy, or anything else, our dedicated customer

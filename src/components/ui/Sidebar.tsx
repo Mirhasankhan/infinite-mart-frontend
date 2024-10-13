@@ -40,8 +40,7 @@ const Sidebar = () => {
       width={250}
       style={{
         backgroundColor: "white",
-
-        overflow: "hidden",
+        // overflow: "hidden",
       }}
     >
       <div

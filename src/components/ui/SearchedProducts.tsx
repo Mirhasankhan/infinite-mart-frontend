@@ -22,7 +22,7 @@ const SearchedProducts = () => {
       {searchedData?.data.length > 0 && (
         <div className="absolute w-full z-50 border">
           <h1 className="text-end bg-gray-300 p-1">Products</h1>
-          <div>
+          <div className="max-h-96 overflow-auto">
             {searchedData?.data.map((search: TProduct) => (
               <Link
                 onClick={() => setSearch("")}

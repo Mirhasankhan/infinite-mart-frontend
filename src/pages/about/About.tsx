@@ -30,7 +30,11 @@ const About = () => {
         <h1 className="text-xl font-bold pt-6">Why Choose Us</h1>
         <WhyUs></WhyUs>
         <h1 className="text-xl font-bold pt-6 text-center">Happy Clients</h1>
-        <div className="grid grid-cols-2 gap-6 my-6">
+
+        <div
+          style={{ clipPath: "polygon(0 0, 100% 25%, 100% 100%, 0 75%)" }}
+          className="grid grid-cols-2 gap-6 my-6 p-24 bg-gray-100"
+        >
           <div>
             <div className="flex gap-3 items-center">
               <img src={john} alt="" />

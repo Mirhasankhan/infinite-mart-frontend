@@ -14,8 +14,8 @@ const MyProducts = () => {
   const { data } = useProductsQuery(email);
   const [addToFlash] = useUpdateFlashMutation();
 
-  const handleAddToFlash = (_id: string) => {
-    addToFlash({ _id, discountPercentage: 5 });
+  const handleAddToFlash = (_id: string, price: number) => {
+    addToFlash({ _id, discountPercentage: 5, price });
   };
 
   return (
@@ -74,7 +74,9 @@ const MyProducts = () => {
                       {!order.flashSale ? (
                         <Button
                           className="bg-green-400 text-white font-medium"
-                          onClick={() => handleAddToFlash(order._id)}
+                          onClick={() =>
+                            handleAddToFlash(order._id, +order.price)
+                          }
                         >
                           Add To Flash
                         </Button>

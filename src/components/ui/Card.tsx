@@ -7,7 +7,8 @@ import useAddProductToCart from "../../utils/addToCart";
 import useAddProductToWishlist from "../../utils/useAddToWishlist";
 
 const Card = ({ product }: { product: TProduct }) => {
-  const { image, productName, price, sold, category } = product;
+  const { image, productName, price, sold, category, discountPercentage } =
+    product;
   const { handleAddToCart } = useAddProductToCart();
   const { handleAddToWishlist } = useAddProductToWishlist();
 
@@ -20,8 +21,20 @@ const Card = ({ product }: { product: TProduct }) => {
       >
         <img className="h-40 md:h-60 w-full" src={image.imageUrl} alt="" />
         <div className="px-3 py-3 flex-grow flex flex-col justify-between">
+          {/* {discountPercentage && (
+            <p className="text-red-500 font-medium">
+              ${+price - (+price / 100) * discountPercentage}
+            </p>
+          )} */}
           <div className="flex justify-between">
-            <p className="text-red-500 font-medium">${price}</p>
+            <div className="flex gap-1 items-center text-gray-600">
+              <p>${price}</p>
+              {discountPercentage && (
+                <p className="font-medium bg-red-600 p-0.5 text-white text-xs">
+                  -{discountPercentage}%
+                </p>
+              )}
+            </div>
             <h1 className="hidden md:block border rounded-lg p-0.5 text-sm hover:bg-green-400 hover:text-white">
               {category}
             </h1>

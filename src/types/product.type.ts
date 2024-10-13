@@ -10,6 +10,7 @@ export type TProduct = {
   subCategory: string;
   content: string;
   productId: string;
+  discountPercentage: number;
   email: string;
   cartQuantity: number;
   quantity: number;

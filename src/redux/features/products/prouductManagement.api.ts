@@ -46,10 +46,10 @@ const productApi = baseApi.injectEndpoints({
       invalidatesTags: ["products"],
     }),
     updateFlash: builder.mutation({
-      query: ({ _id, discountPercentage }) => ({
+      query: ({ _id, discountPercentage, price }) => ({
         url: `/product/flash`,
         method: "PATCH",
-        body: { _id, discountPercentage },
+        body: { _id, discountPercentage, price },
       }),
       invalidatesTags: ["products"],
     }),

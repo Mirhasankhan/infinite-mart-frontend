@@ -14,7 +14,7 @@ const useAddProductToCart = () => {
 
   const handleAddToCart = async (product: TProduct) => {
     if (!email || role == true) {
-      toast.error("You need to login as a user to add products to the cart");
+      toast.error("You need to login as an user to add products to the cart");
       return;
     }
 

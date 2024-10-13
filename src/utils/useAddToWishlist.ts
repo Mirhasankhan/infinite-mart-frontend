@@ -16,7 +16,7 @@ const useAddProductToWishlist = () => {
   const handleAddToWishlist = async (product: TProduct) => {
     if (!email || role == true) {
       toast.error(
-        "You need to login as a user to add products to the wishlist"
+        "You need to login as an user to add products to the wishlist"
       );
       return;
     }

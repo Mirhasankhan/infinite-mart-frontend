@@ -29,7 +29,7 @@ const MyWatchList = () => {
           <div>
             {data?.data.map((list: TProduct) => (
               <div
-                className="grid grid-cols-2 my-6 border-b rounded-md py-3 px-2 bg-white"
+                className="grid md:grid-cols-2 my-6 border-b rounded-md py-3 px-2 bg-white"
                 key={list._id}
               >
                 <div className="col-span-1 flex items-center gap-4 ">
