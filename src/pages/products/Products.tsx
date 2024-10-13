@@ -42,7 +42,7 @@ const Products = () => {
         }
         setLoading(false);
       })
-      .catch(() => setLoading(false)); // In case of an error, stop loading
+      .catch(() => setLoading(false));
   }, [category, sort]);
 
   const handleSortChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
@@ -56,14 +56,16 @@ const Products = () => {
       </div>
       <div className="my-8 px-3 md:px-14">
         {loading ? (
-          <Lottie
-            style={{ height: "400px", width: "600px" }}
-            animationData={spinner}
-            loop={true}
-          />
+          <div className="flex items-center justify-center">
+            <Lottie
+              style={{ height: "400px", width: "600px" }}
+              animationData={spinner}
+              loop={true}
+            />
+          </div>
         ) : (
           <>
-            <div className="flex justify-between items-center">
+            <div className="md:flex justify-between items-center">
               <Link to="/" className="flex gap-1 mt-4 items-center">
                 <FaHome></FaHome>
                 <h1>Home</h1>

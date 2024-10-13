@@ -53,25 +53,23 @@ const DashboardHeader = () => {
               alt=""
             />
             {open && (
-              <div className="absolute w-40 top-14 bg-white shadow-xl right-0 px-2">
+              <div className="absolute w-40 top-14 bg-white shadow-xl rounded-b-md right-0 px-2">
                 <Link
                   to={`/${!role ? "user" : "seller"}/manage-profile`}
-                  className="flex gap-2 items-center text-gray-700 hover:text-red-400 cursor-pointer"
+                  className="flex gap-2 items-center text-gray-700  cursor-pointer"
                 >
                   <CiUser className="text-2xl"></CiUser>
-                  <h1>My Profile</h1>
+                  <h1 className=" hover:underline">My Profile</h1>
                 </Link>
                 <div
                   onClick={() => {
                     dispatch(logOut());
                     setOpen(false);
                   }}
-                  className="flex gap-2 items-center text-gray-700 cursor-pointer"
+                  className="flex gap-2 items-center text-gray-700 hover:text-blue-400 cursor-pointer"
                 >
                   <CiLogout className="text-2xl" />
-                  <button className="hover:text-red-400 hover:underline">
-                    Logout
-                  </button>
+                  <button className=" hover:underline">Logout</button>
                 </div>
               </div>
             )}

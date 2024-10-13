@@ -2,11 +2,7 @@ import CartModal from "./CartModal";
 import { FaCartShopping } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 import { CiCircleList, CiLogout } from "react-icons/ci";
-import {
-  MdDashboard,
-  MdOutlineManageAccounts,
-  MdRateReview,
-} from "react-icons/md";
+import { MdDashboard, MdOutlineManageAccounts } from "react-icons/md";
 import { FaUser } from "react-icons/fa";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import { logOut, useCurrentUser } from "../../redux/features/auth/authSlice";
@@ -73,15 +69,6 @@ const ManageUser = () => {
                 </h1>
               </Link>
 
-              <Link
-                to={`/`}
-                className="flex gap-2 items-center text-gray-700 md:my-3 my-1"
-              >
-                <MdRateReview className="text-2xl" />
-                <h1 className="hover:underline hover:text-red-500">
-                  My Reviews
-                </h1>
-              </Link>
               <div
                 onClick={() => {
                   dispatch(logOut());
