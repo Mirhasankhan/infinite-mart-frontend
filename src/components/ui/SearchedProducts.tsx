@@ -19,7 +19,7 @@ const SearchedProducts = () => {
         placeholder="Search for..."
         variant="filled"
       />
-      {searchedData?.data.length > 0 && (
+      {searchedData?.data.length > 0 ? (
         <div className="absolute w-full z-50 border">
           <h1 className="text-end bg-gray-300 p-1">Products</h1>
           <div className="max-h-96 overflow-auto">
@@ -43,6 +43,14 @@ const SearchedProducts = () => {
               </Link>
             ))}
           </div>
+        </div>
+      ) : (
+        <div>
+          {search && (
+            <h1 className="text-red-500">
+              Sorry! Nothing found for this search.
+            </h1>
+          )}
         </div>
       )}
     </div>

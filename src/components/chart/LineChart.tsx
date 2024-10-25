@@ -57,7 +57,7 @@ const LineChart: React.FC = () => {
   }, []);
 
   return (
-    <div className="w-full mt-6">
+    <div className="w-full md:w-5/6 mx-auto mt-6">
       <h2 className="text-xl font-bold mb-4">Orders Update</h2>
       <Line data={data} ref={chartRef} />
     </div>

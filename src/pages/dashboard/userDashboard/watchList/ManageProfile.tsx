@@ -11,7 +11,6 @@ import {
 import CustomSelect from "../../../../components/form/CustomSelect";
 import { provinceData, selectProvince } from "../../../../utils/districts";
 import { useEffect, useState } from "react";
-import profile from "../../../../assets/images/profile.png";
 import UploadImage from "../../../../components/manageProfile/UploadImage";
 
 const ManageProfile = () => {
@@ -23,10 +22,6 @@ const ManageProfile = () => {
   const [cityOptions, setCityOptions] = useState<
     { value: string; label: string }[]
   >([]);
-
-  const profileImage = userData?.data?.image
-    ? userData?.data?.image.imageUrl
-    : profile;
 
   const handleChangeProvince = (value: string) => {
     setSelectedProvince(value);
@@ -77,82 +72,86 @@ const ManageProfile = () => {
 
   return (
     <div>
-      <div className="bg-cyan-500 p-6 rounded-md flex justify-between items-center">
-        <img className="w-24 h-24 rounded-full" src={profileImage} alt="" />
-        <div>
-          <UploadImage></UploadImage>
+      <h1 className="text-2xl font-medium pb-6">My Profile</h1>
+      <div className="md:grid grid-cols-5 gap-4">
+        <div className="col-span-1 h-60 bg-cyan-500 p-2 rounded-md ">
+          {/* <img className="w-24 h-24 rounded-full" src={profileImage} alt="" /> */}
+          <div>
+            <UploadImage></UploadImage>
+          </div>
         </div>
-      </div>
-      <h1 className="text-xl py-6 font-medium">Billing Information </h1>
-      <div className="shadow-xl border rounded-lg p-4 bg-white">
-        <Row justify="center">
-          <Col span={24}>
-            <CustomForm onSubmit={onSubmit}>
-              <Row gutter={8}>
-                <Col span={12}>
-                  <CustomInput
-                    placeholder="Your name"
-                    type="text"
-                    name="name"
-                    label="Your Name"
-                    defaultValue={name}
-                    readOnly
-                  />
-                </Col>
-                <Col span={12}>
-                  <CustomInput
-                    placeholder="your email"
-                    type="email"
-                    name="email"
-                    label="Your Email"
-                    defaultValue={email ? email : ""}
-                    readOnly
-                  />
-                </Col>
-                <Col span={12}>
-                  <CustomInput
-                    placeholder="contact number"
-                    type="number"
-                    name="phone"
-                    label="Phone"
-                    defaultValue={phone ? phone : ""}
-                  />
-                </Col>
-                <Col span={12}>
-                  <CustomInput
-                    placeholder="address in detail"
-                    type="text"
-                    name="street"
-                    label="Street Address"
-                  />
-                </Col>
-                <Col span={12}>
-                  <CustomSelect
-                    label="Province"
-                    name="province"
-                    options={selectProvince}
-                    onChange={handleChangeProvince}
-                  />
-                </Col>
-                <Col span={12}>
-                  <CustomSelect
-                    label="City/Town"
-                    name="city"
-                    options={cityOptions}
-                    onChange={handleChangeCity}
-                  />
-                </Col>
-              </Row>
 
-              <Button
-                className="w-full bg-orange-400 text-white font-semibold"
-                htmlType="submit"
-              >
-                Update Profile Info
-              </Button>
-            </CustomForm>
-          </Col>
-        </Row>
+        <div className="col-span-4 shadow-xl border rounded-lg p-4 bg-white">
+          <h1 className="text-xl py-6 font-medium">Billing Information </h1>
+          <Row justify="center">
+            <Col span={24}>
+              <CustomForm onSubmit={onSubmit}>
+                <Row gutter={8}>
+                  <Col span={12}>
+                    <CustomInput
+                      placeholder="Your name"
+                      type="text"
+                      name="name"
+                      label="Your Name"
+                      defaultValue={name}
+                      readOnly
+                    />
+                  </Col>
+                  <Col span={12}>
+                    <CustomInput
+                      placeholder="your email"
+                      type="email"
+                      name="email"
+                      label="Your Email"
+                      defaultValue={email ? email : ""}
+                      readOnly
+                    />
+                  </Col>
+                  <Col span={12}>
+                    <CustomInput
+                      placeholder="contact number"
+                      type="number"
+                      name="phone"
+                      label="Phone"
+                      defaultValue={phone ? phone : ""}
+                    />
+                  </Col>
+                  <Col span={12}>
+                    <CustomInput
+                      placeholder="address in detail"
+                      type="text"
+                      name="street"
+                      label="Street Address"
+                    />
+                  </Col>
+                  <Col span={12}>
+                    <CustomSelect
+                      label="Province"
+                      name="province"
+                      options={selectProvince}
+                      onChange={handleChangeProvince}
+                    />
+                  </Col>
+                  <Col span={12}>
+                    <CustomSelect
+                      label="City/Town"
+                      name="city"
+                      options={cityOptions}
+                      onChange={handleChangeCity}
+                    />
+                  </Col>
+                </Row>
+
+                <Button
+                  className="w-full bg-orange-400 text-white font-semibold"
+                  htmlType="submit"
+                >
+                  Update Profile Info
+                </Button>
+              </CustomForm>
+            </Col>
+          </Row>
+        </div>
       </div>
     </div>
   );
