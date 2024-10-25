@@ -47,8 +47,8 @@ const SearchedProducts = () => {
       ) : (
         <div>
           {search && (
-            <h1 className="text-red-500">
-              Sorry! Nothing found for this search.
+            <h1 className="text-red-500 absolute bg-white w-full p-6 rounded-b-lg z-50">
+              Sorry! Nothing found for this search
             </h1>
           )}
         </div>

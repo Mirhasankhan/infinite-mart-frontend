@@ -72,7 +72,7 @@ const ManageProfile = () => {
 
   return (
     <div>
-      <h1 className="text-2xl font-medium pb-6">My Profile</h1>
+      <h1 className="text-2xl font-medium pb-6 text-center">My Profile</h1>
       <div className="md:grid grid-cols-5 gap-4">
         <div className="col-span-1 h-60 bg-cyan-500 p-2 rounded-md ">
           {/* <img className="w-24 h-24 rounded-full" src={profileImage} alt="" /> */}

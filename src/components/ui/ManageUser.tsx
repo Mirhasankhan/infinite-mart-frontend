@@ -11,7 +11,7 @@ import { useCartsQuery } from "../../redux/features/cart/cartManagement.api";
 import { TCart } from "../../types/cart.type";
 
 const ManageUser = () => {
-  const { email, role } = useAppSelector(useCurrentUser);
+  const { email, role, name } = useAppSelector(useCurrentUser);
   const { data: cartData } = useCartsQuery(email);
   const [open, setOpen] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
@@ -26,13 +26,13 @@ const ManageUser = () => {
   return (
     <div className="flex items-center justify-between col-span-2">
       {email ? (
-        <div className="flex items-center gap-2 hover:bg-gray-300 p-1 rounded-md">
+        <div className="flex items-center gap-2 hover:bg-gray-300 p-1 px-2 rounded-md">
           <div>
             <FaUser className="text-green-400 text-xl"></FaUser>
           </div>
           <div className="cursor-pointer" onClick={() => setOpen(!open)}>
             <h1 className="text-sm">
-              Hello, {email ? email.toString() : ""}
+              Hello, {name}
               <p>Manage Account</p>
             </h1>
           </div>
@@ -99,7 +99,7 @@ const ManageUser = () => {
           {cartData?.data?.length}
         </h1>
         <div className="cursor-pointer" onClick={() => setIsOpen(!isOpen)}>
-          <FaCartShopping className="text-white text-2xl font-semibold"></FaCartShopping>
+          <FaCartShopping className="text-white text-3xl font-semibold"></FaCartShopping>
         </div>
         <div className="text-white">
           <h1>Cart</h1>

@@ -91,12 +91,14 @@ const UploadImage = () => {
       <img className="w-28 h-28 rounded-full" src={profileImage} alt="" />
       <h1 className="text-xl font-medium pt-2">{name}</h1>
       <p>{isSeller ? "Seller" : "Buyer"}</p>
-      <div className="flex gap-1 items-center">
-        <FaLocationDot />
-        <p>
-          {address.city},{address.province}
-        </p>
-      </div>
+      {address?.city && (
+        <div className="flex gap-1 items-center">
+          <FaLocationDot />
+          <p>
+            {address.city},{address.province}
+          </p>
+        </div>
+      )}
       <div className="absolute md:right-6 md:top-16 right-16 top-20">
         <Row justify="center">
           <Col span={24}>
