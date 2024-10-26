@@ -18,6 +18,10 @@ const Products = () => {
   console.log(sort);
 
   useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  useEffect(() => {
     setLoading(true);
     fetch(
       `https://infinite-mart-server.vercel.app/api/v1/product/allProducts?sort=${sort}`

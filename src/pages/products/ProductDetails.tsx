@@ -7,7 +7,6 @@ import useAddProductToCart from "../../utils/addToCart";
 import RelatedProduct from "./RelatedProduct";
 import { useCategoryProductsQuery } from "../../redux/features/products/prouductManagement.api";
 import { TProduct } from "../../types/product.type";
-import { Button } from "antd";
 import useAddProductToWishlist from "../../utils/useAddToWishlist";
 
 const ProductDetails = () => {
@@ -78,25 +77,25 @@ const ProductDetails = () => {
             </div>
             <div className="border-b py-4">
               <h1>Sold By: {seller}</h1>
-              <p>Price: ${price}</p>
+              <p className="py-1">Price: ${price}</p>
               <h1>
                 Categories: {category} &gt; {subCategory}
               </h1>
             </div>
             <p className="py-4">Quantity: ({quantity} Available)</p>
             <div className="flex gap-6">
-              <Button
+              <button
                 onClick={() => handleAddToCart(product)}
-                className="bg-green-400  font-medium  text-white"
+                className="custom-button"
               >
                 Add To Cart
-              </Button>
-              <Button
+              </button>
+              <button
                 onClick={() => handleAddToWishlist(product)}
-                className="bg-orange-400  font-medium  text-white"
+                className="!bg-orange-400 custom-button"
               >
                 Add To Wishlist
-              </Button>
+              </button>
             </div>
           </div>
         </div>

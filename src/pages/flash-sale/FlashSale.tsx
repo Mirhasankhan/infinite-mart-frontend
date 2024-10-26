@@ -1,4 +1,3 @@
-import { Button } from "antd";
 import Card from "../../components/ui/Card";
 import CountdownTimer from "../../components/ui/CountDown";
 import { useProductsQuery } from "../../redux/features/products/prouductManagement.api";
@@ -35,9 +34,7 @@ const FlashSale = () => {
         </div>
         {!isFlashSalePage && (
           <Link to="/flash-sale">
-            <Button className="bg-green-400 text-white font-medium">
-              See More
-            </Button>
+            <button className="custom-button">See More</button>
           </Link>
         )}
       </div>
