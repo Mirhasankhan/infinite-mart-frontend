@@ -94,7 +94,7 @@ const AddProduct = () => {
           <Col span={24}>
             <CustomForm onSubmit={onSubmit}>
               <Row gutter={8}>
-                <Col span={12}>
+                <Col span={24} md={{ span: 12 }} lg={{ span: 12 }}>
                   <CustomInput
                     placeholder="product name"
                     type="text"
@@ -102,7 +102,7 @@ const AddProduct = () => {
                     label="Product Name"
                   />
                 </Col>
-                <Col span={12}>
+                <Col span={24} md={{ span: 12 }} lg={{ span: 12 }}>
                   <CustomInput
                     placeholder="quantity"
                     type="number"
@@ -111,7 +111,7 @@ const AddProduct = () => {
                   />
                 </Col>
 
-                <Col span={12}>
+                <Col span={24} md={{ span: 12 }} lg={{ span: 12 }}>
                   <CustomInput
                     placeholder="price"
                     type="number"
@@ -137,7 +137,7 @@ const AddProduct = () => {
                 </Col>
               </Row>
               <Row gutter={8}>
-                <Col span={12}>
+                <Col span={24} md={{ span: 12 }} lg={{ span: 12 }}>
                   <label className="font-semibold" htmlFor="">
                     Write Product Description
                   </label>
@@ -148,7 +148,12 @@ const AddProduct = () => {
                   />
                 </Col>
 
-                <Col className="border-2 rounded-md mb-2 p-3" span={12}>
+                <Col
+                  className="border-2 rounded-md mb-2 p-3"
+                  span={24}
+                  md={{ span: 12 }}
+                  lg={{ span: 12 }}
+                >
                   <CustomSelect
                     label="Category"
                     name="category"

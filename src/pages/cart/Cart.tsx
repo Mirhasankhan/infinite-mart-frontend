@@ -11,8 +11,13 @@ import { Link } from "react-router-dom";
 import useUpdateCartQuantity from "../../utils/updateQuantity";
 import { TProduct } from "../../types/product.type";
 import { MdCheckBoxOutlineBlank } from "react-icons/md";
+import { useEffect } from "react";
 
 const Cart = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const { email } = useAppSelector(useCurrentUser);
   const { handleUpdateQuantity } = useUpdateCartQuantity();
   const [deleteCart] = useDeleteCartMutation();
