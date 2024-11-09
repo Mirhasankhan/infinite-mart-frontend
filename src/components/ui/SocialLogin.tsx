@@ -12,16 +12,27 @@ import { useNavigate } from "react-router-dom";
 const SocialLogin = () => {
   const dispatch = useAppDispatch();
   const [registerAccount] = useRegisterMutation();
-
   const { data: userData } = useActiveUserQuery("");
-  console.log(userData);
+
   const auth = getAuth(app);
   const googleProvider = new GoogleAuthProvider();
   const navigate = useNavigate();
 
   const signInWithGoogle = async () => {
+    // const result = await signInWithPopup(auth, googleProvider);
+    // console.log(result?.user?.displayName);
+    // dispatch(
+    //   setUser({
+    //     name: result?.user?.displayName,
+    //     email: result?.user?.email,
+    //     role: "user",
+    //     token: "token will come",
+    //   })
+    // );
+    // navigate("/");
     try {
       const result = await signInWithPopup(auth, googleProvider);
+      navigate("/");
 
       if (
         userData &&
