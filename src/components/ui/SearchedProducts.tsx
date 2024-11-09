@@ -15,7 +15,7 @@ const SearchedProducts = () => {
     <div className="h-full relative">
       <Input
         onChange={handleSearch}
-        className="w-full h-12"
+        className="w-full md:h-12 h-8"
         placeholder="Search for..."
         variant="filled"
       />

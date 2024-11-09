@@ -7,8 +7,7 @@ import { CiHeart } from "react-icons/ci";
 import { IoHome } from "react-icons/io5";
 import { GrProductHunt } from "react-icons/gr";
 import { RiAccountBoxFill } from "react-icons/ri";
-import { useState } from "react";
-import { RiChatDeleteFill } from "react-icons/ri";
+
 import ManageUser from "./ManageUser";
 import SearchedProducts from "./SearchedProducts";
 import WhatsAppLink from "./WhatsApp";
@@ -16,7 +15,6 @@ import { useAppSelector } from "../../redux/hooks";
 import { useCurrentUser } from "../../redux/features/auth/authSlice";
 
 const Header = () => {
-  const [search, setSearch] = useState(false);
   const { role } = useAppSelector(useCurrentUser);
   const currentRole = role == true ? "seller" : "user";
 
@@ -66,7 +64,7 @@ const Header = () => {
         </div>
         <ManageUser></ManageUser>
       </div>
-      <div className="flex justify-between items-center px-3 border-b md:hidden">
+      <div className="flex justify-between items-center px-1 py-2 border-b md:hidden">
         <div>
           <Link to="/" className="col-span-1 flex items-center">
             <img className="h-12 w-12 rounded-full" src={logo} alt="" />
@@ -78,19 +76,10 @@ const Header = () => {
             </h1>
           </Link>
         </div>
-        <div onClick={() => setSearch(!search)} className="text-2xl">
-          {search ? (
-            <RiChatDeleteFill></RiChatDeleteFill>
-          ) : (
-            <CiSearch></CiSearch>
-          )}
-        </div>
-      </div>
-      {search && (
         <div className=" md:hidden col-span-3 px-3 relative">
           <SearchedProducts></SearchedProducts>
         </div>
-      )}
+      </div>
       <div className="fixed bottom-0 left-0 right-0 border-t bg-white z-50 p-2 px-3 shadow-md flex justify-between  md:hidden items-center text-center">
         <Link to="/" className="flex flex-col items-center">
           <IoHome className="text-green-600 text-xl"></IoHome>
