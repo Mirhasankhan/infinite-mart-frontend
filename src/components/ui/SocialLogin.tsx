@@ -32,14 +32,21 @@ const SocialLogin = () => {
     // navigate("/");
     try {
       const result = await signInWithPopup(auth, googleProvider);
-      navigate("/");
 
       if (
         userData &&
-        userData?.data.some(
+        userData.data.some(
           (user: { email: string }) => user.email === result.user.email
         )
       ) {
+        dispatch(
+          setUser({
+            name: result.user.displayName,
+            email: result.user.email,
+            role: false,
+            token: "token will come",
+          })
+        );
         navigate("/");
         return;
       } else {
@@ -49,25 +56,22 @@ const SocialLogin = () => {
           password: "123",
           isSeller: false,
         };
-        console.log(newAccount);
 
         const res = await registerAccount(newAccount);
         if (res.data.success) {
-          toast.success("account created successfully");
-          navigate("/login");
+          dispatch(
+            setUser({
+              name: result.user.displayName,
+              email: result.user.email,
+              role: false,
+              token: "token will come",
+            })
+          );
+          navigate("/");
         } else {
-          toast.error("something went wrong");
+          toast.error("Something went wrong during registration");
         }
       }
-
-      dispatch(
-        setUser({
-          name: result.user.displayName,
-          email: result.user.email,
-          role: false,
-          token: "token will come",
-        })
-      );
     } catch (error: any) {
       toast.error(error.message);
     }

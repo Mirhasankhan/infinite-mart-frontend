@@ -7,6 +7,8 @@ import singImage from "../../assets/images/sign.png";
 // import { FcGoogle } from "react-icons/fc";
 import { useRegisterMutation } from "../../redux/features/auth/authApi";
 import { toast } from "sonner";
+import { FcGoogle } from "react-icons/fc";
+import SocialLogin from "../../components/ui/SocialLogin";
 // import SocialLogin from "../../components/ui/SocialLogin";
 
 const Register = () => {
@@ -83,16 +85,16 @@ const Register = () => {
               </CustomForm>
             </Col>
           </Row>
-          {/* <div className="divider">Or join with</div>
+          <div className="divider">Or join with</div>
           <div className="cursor-pointer flex gap-2 items-center w-full rounded-md border justify-center py-2">
             <FcGoogle className="text-xl"></FcGoogle>
             <SocialLogin></SocialLogin>
-          </div> */}
+          </div>
         </div>
 
         <div className="hidden md:block">
           <img
-            className="w-full h-[390px] rounded-r-md"
+            className="w-full h-[480px] rounded-r-md"
             src={singImage}
             alt=""
           />
