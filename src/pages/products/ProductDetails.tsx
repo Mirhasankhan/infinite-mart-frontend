@@ -4,10 +4,11 @@ import { useLocation } from "react-router-dom";
 import "@smastrom/react-rating/style.css";
 import ProductDescriptions from "./ProductDescriptions";
 import useAddProductToCart from "../../utils/addToCart";
-import RelatedProduct from "./RelatedProduct";
+// import RelatedProduct from "./RelatedProduct";
 import { useCategoryProductsQuery } from "../../redux/features/products/prouductManagement.api";
 import { TProduct } from "../../types/product.type";
 import useAddProductToWishlist from "../../utils/useAddToWishlist";
+import Card from "../../components/ui/Card";
 
 const ProductDetails = () => {
   useEffect(() => {
@@ -47,7 +48,7 @@ const ProductDetails = () => {
   } = product;
 
   return (
-    <div className="bg-gray-300 px-3 md:px-24 py-6 mt-6">
+    <div className="bg-gray-200 px-3 md:px-16 py-6 mt-6">
       <div className="bg-white p-4 rounded-md">
         <div className="grid grid-cols-5 gap-6 rounded-md">
           <div className="col-span-5 md:col-span-2">
@@ -65,9 +66,8 @@ const ProductDetails = () => {
           </div>
           <div className="col-span-5 md:col-span-3">
             <h1 className="font-bold text-xl">{productName}</h1>
-            <div className="flex items-center gap-2 border-b pb-4">
+            <div className="flex items-center gap-2 border-b py-3">
               <Rating
-                className="mt-auto"
                 style={{ maxWidth: 80 }}
                 // value={Math.round(testi.rating)}
                 value={4}
@@ -99,16 +99,19 @@ const ProductDetails = () => {
             </div>
           </div>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-1 gap-6">
           <ProductDescriptions product={product}></ProductDescriptions>
           <div>
             <h1 className="pt-12 pb-3 text-xl font-medium">Related Products</h1>
-            {categoryData?.data.map((category: TProduct) => (
-              <RelatedProduct
-                key={category._id}
-                related={category}
-              ></RelatedProduct>
-            ))}
+            <div className="grid grid-cols-4 gap-4">
+              {categoryData?.data.map((category: TProduct) => (
+                // <RelatedProduct
+                //   key={category._id}
+                //   related={category}
+                // ></RelatedProduct>
+                <Card product={category}></Card>
+              ))}
+            </div>
           </div>
         </div>
       </div>

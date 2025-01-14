@@ -94,7 +94,7 @@ const ManageUser = () => {
           </Link>
         </div>
       )}
-      <div className="flex items-center gap-6 bg-green-600 px-3 relative rounded-md">
+      <div className="flex items-center gap-6 bg-[#3975c3] px-3 relative rounded-md">
         <h1 className="bg-orange-200 rounded-full px-1 absolute top-1 right-16">
           {cartData?.data?.length}
         </h1>

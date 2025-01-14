@@ -27,7 +27,7 @@ const FlashSale = () => {
       </h1>
       <div className="flex justify-between items-center pb-4">
         <div className="md:flex gap-24 items-center">
-          <h1 className="text-red-400 pb-3">On Sale Now</h1>
+          <h1 className="text-red-400 pb-3 text-xl">On Sale Now</h1>
           <div className="flex gap-2 items-center">
             Ending In : <CountdownTimer targetDate={targetDate} />
           </div>
@@ -38,9 +38,9 @@ const FlashSale = () => {
           </Link>
         )}
       </div>
-      <div className="grid grid-cols-2 md:grid-cols-5 gap-3">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
         {flashData
-          ?.slice(0, isFlashSalePage ? flashData.length : 5)
+          ?.slice(0, isFlashSalePage ? flashData.length : 4)
           .map((data: TProduct) => (
             <Card key={data._id} product={data} />
           ))}
