@@ -1,4 +1,3 @@
-import { Button } from "antd";
 import {
   useCartsQuery,
   useDeleteCartMutation,
@@ -11,6 +10,7 @@ import { useAppSelector } from "../../redux/hooks";
 import { useCurrentUser } from "../../redux/features/auth/authSlice";
 import useUpdateCartQuantity from "../../utils/updateQuantity";
 import { TProduct } from "../../types/product.type";
+import Button from "./Button";
 
 interface CartProps {
   isOpen: boolean;
@@ -93,12 +93,13 @@ const CartModal = ({ isOpen, setIsOpen }: CartProps) => {
                 </div>
                 <div className="flex justify-between">
                   <Link onClick={() => setIsOpen(false)} to="/checkout">
-                    <Button className="bg-green-400 text-white font-medium">
-                      Checkout
-                    </Button>
+                    <Button buttonName="Checkout"></Button>
                   </Link>
                   <Link onClick={() => setIsOpen(false)} to="/cart">
-                    <Button className="font-medium">View Cart</Button>
+                    <button className="relative px-6 py-2 overflow-hidden bg-[#3975c3] text-white  mt-2  rounded-lg group">
+                      <span className="relative z-10">View Cart</span>
+                      <span className="absolute inset-0 bg-black transform scale-x-0 origin-left transition-transform duration-1000 group-hover:scale-x-100"></span>
+                    </button>
                   </Link>
                 </div>
               </div>

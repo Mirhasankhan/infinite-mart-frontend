@@ -4,6 +4,7 @@ import { useProductsQuery } from "../../redux/features/products/prouductManageme
 import { TProduct } from "../../types/product.type";
 import { Link, useLocation } from "react-router-dom";
 import { useEffect } from "react";
+import Button from "../../components/ui/Button";
 
 const FlashSale = () => {
   const { data } = useProductsQuery("");
@@ -34,7 +35,8 @@ const FlashSale = () => {
         </div>
         {!isFlashSalePage && (
           <Link to="/flash-sale">
-            <button className="custom-button">See More</button>
+            {/* <button className="custom-button">See More</button> */}
+            <Button buttonName="See More"></Button>
           </Link>
         )}
       </div>

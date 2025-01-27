@@ -4,7 +4,6 @@ import {
   useDeleteCartMutation,
 } from "../../redux/features/cart/cartManagement.api";
 import { TCart } from "../../types/cart.type";
-import { Button } from "antd";
 import { useAppSelector } from "../../redux/hooks";
 import { useCurrentUser } from "../../redux/features/auth/authSlice";
 import { Link } from "react-router-dom";
@@ -12,6 +11,7 @@ import useUpdateCartQuantity from "../../utils/updateQuantity";
 import { TProduct } from "../../types/product.type";
 import { MdCheckBoxOutlineBlank } from "react-icons/md";
 import { useEffect } from "react";
+import Button from "../../components/ui/Button";
 
 const Cart = () => {
   useEffect(() => {
@@ -42,7 +42,7 @@ const Cart = () => {
                 <div className="mb-4 col-span-2">
                   <div className="flex gap-4 items-center">
                     <img
-                      className="h-12 w-12 border"
+                      className="h-12 w-12"
                       src={cart.image.imageUrl}
                       alt=""
                     />
@@ -51,17 +51,17 @@ const Cart = () => {
                 </div>
                 <div className="col-span-3 flex items-center justify-between">
                   <h1 className="text-red-800 font-medium">${cart.price}</h1>
-                  <div className="flex items-center gap-3 border rounded-lg">
+                  <div className="flex bg-gray-100 py-1 items-center gap-3 border rounded-lg">
                     <button
                       onClick={() => handleUpdateQuantity(cart, false)}
-                      className="bg-gray-400 h-full px-3 items-center rounded-l-lg text-2xl"
+                      className=" h-full px-3 items-center font-semibold rounded-l-lg text-2xl"
                     >
                       -
                     </button>
                     <h1 className="px-2 md:px-8">{cart.cartQuantity}</h1>
                     <button
                       onClick={() => handleUpdateQuantity(cart, true)}
-                      className="bg-orange-400 h-full px-3 rounded-r-lg text-2xl"
+                      className="font-semibold h-full px-3 rounded-r-lg text-2xl"
                     >
                       +
                     </button>
@@ -78,9 +78,7 @@ const Cart = () => {
               </div>
             ))}
             <Link to="/">
-              <Button className="bg-green-400 mt-6 text-white font-medium">
-                Continue Shopping
-              </Button>
+              <Button buttonName="Continue Shopping"></Button>
             </Link>
           </div>
         ) : (
@@ -90,9 +88,7 @@ const Cart = () => {
               <h1>No Product have been added in cart</h1>
             </div>
             <Link to={"/"}>
-              <Button className="bg-green-400 text-white font-medium mt-2">
-                Browse Products
-              </Button>
+              <Button buttonName="Browse Products"></Button>
             </Link>
           </div>
         )}
@@ -116,9 +112,7 @@ const Cart = () => {
           </div>
         </div>
         <Link to="/checkout">
-          <Button className="bg-green-400 w-full mt-4 font-medium text-white">
-            Proceed To Checkout
-          </Button>
+          <Button buttonName="Proceed To Checkout"></Button>
         </Link>
       </div>
     </div>
