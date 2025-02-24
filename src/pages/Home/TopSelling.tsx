@@ -18,7 +18,7 @@ const TopSelling = () => {
           <Button buttonName="See More"></Button>
         </Link>
       </div>
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+      <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-6">
         {soldData
           ?.sort((a: { sold: number }, b: { sold: number }) => b.sold - a.sold)
           .slice(0, 4)
