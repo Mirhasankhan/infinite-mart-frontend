@@ -21,7 +21,7 @@ const TopSelling = () => {
       <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-6">
         {soldData
           ?.sort((a: { sold: number }, b: { sold: number }) => b.sold - a.sold)
-          .slice(0, 4)
+          .slice(0, 5)
           .map((product: TProduct) => (
             <Card key={product._id} product={product}></Card>
           ))}
