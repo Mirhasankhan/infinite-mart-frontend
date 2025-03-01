@@ -76,7 +76,7 @@ const Products = () => {
               </Link>
               <div className="mb-4">
                 <label className="text-gray-500" htmlFor="sort">
-                  Sort by Price:{" "}
+                  Sort by Price:
                 </label>
                 <select
                   className="border hover:border-blue-500 rounded-md p-2"

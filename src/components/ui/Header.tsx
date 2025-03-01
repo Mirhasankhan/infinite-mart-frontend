@@ -41,7 +41,7 @@ const Header = () => {
           </Link>
         </div>
       </div>
-      <div className=" hidden md:grid grid-cols-6 gap-6 px-3 md:px-14 mt-3 mb-3">
+      <div className="shadow-sm pb-1 hidden md:grid grid-cols-6 gap-6 px-3 md:px-14 mt-3 mb-3">
         <Link to="/" className="col-span-1 flex items-center">
           <img className="h-12 w-12 rounded-full" src={logo} alt="" />
           <h1
