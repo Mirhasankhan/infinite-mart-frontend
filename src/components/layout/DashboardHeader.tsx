@@ -3,7 +3,6 @@ import { CiLogout } from "react-icons/ci";
 import { CiUser } from "react-icons/ci";
 import { IoChatbubblesOutline } from "react-icons/io5";
 import { CiLight } from "react-icons/ci";
-// import { CiDark } from "react-icons/ci";
 import { Layout } from "antd";
 import { useActiveUserQuery } from "../../redux/features/auth/authApi";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";

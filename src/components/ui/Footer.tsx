@@ -9,7 +9,8 @@ import {
 } from "react-icons/fa";
 import { IoHome } from "react-icons/io5";
 import { FaXTwitter } from "react-icons/fa6";
-import { Button, Input } from "antd";
+import {  Input } from "antd";
+import Button from "./Button";
 
 const Footer = () => {
   return (
@@ -95,9 +96,7 @@ const Footer = () => {
           placeholder="Email Address"
           variant="filled"
         />
-        <Button className="block bg-green-500 font-medium text-white">
-          Subscribe
-        </Button>
+        <Button buttonName="Subscribe"></Button>
       </div>
       <p className="text-center col-span-5 mb-8 md:mb-1">
         © 2024 InfiniteMart. All rights reserved.

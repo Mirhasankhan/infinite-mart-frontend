@@ -11,17 +11,17 @@ const TopSelling = () => {
   );
 
   return (
-    <div className="px-3 md:px-14 my-12">
+    <div className="px-3 md:px-14 2xl:px-60 my-12">
       <div className="flex justify-between items-center mb-6">
         <h1 className="text-xl md:text-2xl">Top Selling Products</h1>
         <Link to="/products">
           <Button buttonName="See More"></Button>
         </Link>
       </div>
-      <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-6">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
         {soldData
           ?.sort((a: { sold: number }, b: { sold: number }) => b.sold - a.sold)
-          .slice(0, 5)
+          .slice(0, 4)
           .map((product: TProduct) => (
             <Card key={product._id} product={product}></Card>
           ))}

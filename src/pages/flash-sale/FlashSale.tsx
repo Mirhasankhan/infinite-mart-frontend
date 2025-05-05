@@ -22,7 +22,7 @@ const FlashSale = () => {
   const targetDate = new Date(Date.now() + 24 * 60 * 60 * 1000);
 
   return (
-    <div className="px-3 md:px-14 my-8">
+    <div className="px-3 md:px-14 2xl:px-60 my-8">
       <h1 className="font-medium text-xl md:text-2xl mb-4 pb-2 border-b">
         Flash Sale
       </h1>
@@ -40,7 +40,7 @@ const FlashSale = () => {
           </Link>
         )}
       </div>
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
         {flashData
           ?.slice(0, isFlashSalePage ? flashData.length : 4)
           .map((data: TProduct) => (

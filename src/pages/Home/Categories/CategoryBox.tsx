@@ -62,7 +62,7 @@ const CategoryBox = ({ c }: CategoryBoxProps) => {
   return (
     <div>
       <div onClick={handleClick} className="dropdown dropdown-hover">
-        <div tabIndex={0} role="button" className="text-white m-1">
+        <div tabIndex={0} role="button" className="text-white m-1 font-medium">
           {c.name}
         </div>
         <ul

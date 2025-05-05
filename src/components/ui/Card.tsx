@@ -13,14 +13,14 @@ const Card = ({ product }: { product: TProduct }) => {
   const { handleAddToWishlist } = useAddProductToWishlist();
 
   return (
-    <div className="relative group border rounded-md">
+    <div className="relative group shadow-[0px_4px_15px_rgba(255,69,58,0.15)]  rounded-md">
       <Link
         state={{ product: product }}
         to={`/products/${product._id}`}
         className="flex flex-col p-2 h-full hover:shadow-lg rounded-md"
       >
         <img
-          className="h-40 md:h-[300px] w-full rounded-t-md"
+          className="h-40 md:h-[280px] w-full mb-3 rounded-t-md"
           src={image.imageUrl}
           alt=""
         />
