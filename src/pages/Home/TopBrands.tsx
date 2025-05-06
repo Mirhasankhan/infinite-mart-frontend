@@ -7,8 +7,8 @@ import brand6 from "../../assets/images/brand6.png";
 
 const TopBrands = () => {
   return (
-    <div className="px-3 md:px-14 ">
-      <div className="grid grid-cols-5 md:grid-cols-6 gap-3 border-y py-8">
+    <div className="px-3 md:px-14 2xl:px-60">
+      <div className="grid grid-cols-5 md:grid-cols-6 gap-3 border-y py-12">
         <img src={brand1} alt="" />
         <img src={brand2} alt="" />
         <img src={brand3} alt="" />

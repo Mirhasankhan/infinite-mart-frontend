@@ -30,11 +30,11 @@ const Register = () => {
   };
 
   return (
-    <div className="pb-16 bg-gray-100">
+    <div className="pb-16 min-h-screen bg-gray-100">
       <h1 className="text-xl md:text-3xl font-semibold text-center py-4 ">
         Create <span className="text-orange-400">New Account</span>
       </h1>
-      <div className=" grid grid-cols-1 md:grid-cols-2 px-3 md:px-40  mt-6 rounded-lg">
+      <div className="grid grid-cols-1 md:grid-cols-2 w-full px-3 md:w-2/3 2xl:w-1/2 mx-auto">
         <div className="rounded-l-md p-4 bg-white">
           <Row justify="center">
             <Col span={24}>

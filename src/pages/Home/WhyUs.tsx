@@ -5,7 +5,7 @@ import { IoCheckmarkDoneSharp } from "react-icons/io5";
 
 const WhyUs = () => {
   return (
-    <div className="grid grid-cols-2 md:grid-cols-4 gap-3 px-2 md:px-14 my-6">
+    <div className="grid grid-cols-2 md:grid-cols-4 gap-3 px-2 md:px-14 2xl:px-60 my-6">
       <div className="flex flex-col items-center px-2">
         <FaRegStar className="md:text-5xl text-3xl text-[#3975c3]"></FaRegStar>
         <h1 className="text-sm md:text-xl font-semibold py-3">
