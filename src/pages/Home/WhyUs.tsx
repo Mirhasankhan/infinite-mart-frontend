@@ -7,7 +7,7 @@ const WhyUs = () => {
   return (
     <div className="grid grid-cols-2 md:grid-cols-4 gap-3 px-2 md:px-14 2xl:px-60 my-6">
       <div className="flex flex-col items-center px-2">
-        <FaRegStar className="md:text-5xl text-3xl text-[#3975c3]"></FaRegStar>
+        <FaRegStar className="md:text-5xl text-3xl text-primary"></FaRegStar>
         <h1 className="text-sm md:text-xl font-semibold py-3">
           Top Ranked Companies
         </h1>
@@ -17,7 +17,7 @@ const WhyUs = () => {
         </p>
       </div>
       <div className="flex flex-col items-center px-2">
-        <IoShieldCheckmark className="md:text-5xl text-3xl text-[#3975c3]"></IoShieldCheckmark>
+        <IoShieldCheckmark className="md:text-5xl text-3xl text-primary"></IoShieldCheckmark>
         <h1 className="text-sm md:text-xl font-semibold py-3">
           Organic Certificated
         </h1>
@@ -28,7 +28,7 @@ const WhyUs = () => {
         </p>
       </div>
       <div className="flex flex-col items-center px-2 ">
-        <CiDeliveryTruck className="md:text-5xl text-3xl text-[#3975c3]"></CiDeliveryTruck>
+        <CiDeliveryTruck className="md:text-5xl text-3xl text-primary"></CiDeliveryTruck>
         <h1 className="text-sm md:text-xl font-semibold py-3">Fast Delivery</h1>
         <p className="text-sm">
           Experience the convenience of our fast delivery service, ensuring your
@@ -36,7 +36,7 @@ const WhyUs = () => {
         </p>
       </div>
       <div className="flex flex-col items-center px-2">
-        <IoCheckmarkDoneSharp className="md:text-5xl text-3xl text-[#3975c3]"></IoCheckmarkDoneSharp>
+        <IoCheckmarkDoneSharp className="md:text-5xl text-3xl text-primary"></IoCheckmarkDoneSharp>
         <h1 className="text-sm md:text-xl font-semibold py-3">
           Trusted Products
         </h1>

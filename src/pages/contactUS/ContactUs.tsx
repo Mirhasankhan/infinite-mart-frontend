@@ -47,17 +47,17 @@ const ContactUs = () => {
           <form>
             <label htmlFor="">
               Your Name
-              <span className="text-red-500">*</span>
+              <span className="text-primary">*</span>
             </label>
             <input type="text" className="border w-full p-2" />
             <label htmlFor="">
               Your Email
-              <span className="text-red-500">*</span>
+              <span className="text-primary">*</span>
             </label>
             <input type="text" className="border w-full p-2 my-4" />
             <label className="block" htmlFor="">
               Your Message
-              <span className="text-red-500">*</span>
+              <span className="text-primary">*</span>
             </label>
             <textarea
               rows={5}

@@ -169,7 +169,7 @@ const AddProduct = () => {
                 </Col>
               </Row>
               <Button
-                className="w-full bg-orange-400 text-white font-semibold"
+                className="w-full bg-primary text-white font-semibold"
                 htmlType="submit"
               >
                 Upload Product

@@ -55,7 +55,7 @@ const Products = () => {
 
   return (
     <div>
-      <div className=" rounded-md bg-cyan-500">
+      <div className=" rounded-md bg-primary">
         <Categories></Categories>
       </div>
       <div className="my-8 px-3 md:px-14">
@@ -79,7 +79,7 @@ const Products = () => {
                   Sort by Price:
                 </label>
                 <select
-                  className="border hover:border-blue-500 rounded-md p-2"
+                  className="border hover:border-primary rounded-md p-2"
                   id="sort"
                   onChange={handleSortChange}
                 >
@@ -104,7 +104,7 @@ const Products = () => {
                     <h1>No Product availabe on this category</h1>
                   </div>
                   <Link to={"/"}>
-                    <Button className="bg-green-400 text-white font-medium mt-2">
+                    <Button className="bg-primary text-white font-medium mt-2">
                       Browse Products
                     </Button>
                   </Link>

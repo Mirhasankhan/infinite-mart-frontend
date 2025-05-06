@@ -63,19 +63,19 @@ const SellerDashboard = () => {
     <div>
       <h1 className="text-2xl font-semibold mb-8">My Dashboard</h1>
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-        <div className="p-4 rounded-lg bg-cyan-300 text-white">
+        <div className="p-4 rounded-lg bg-primary text-white">
           <h1 className=" text-2xl font-medium">{availableQuantity} Product</h1>
           <p>quantity available for sale</p>
         </div>
-        <div className="p-4 rounded-lg bg-blue-400 text-white">
+        <div className="p-4 rounded-lg bg-primary text-white">
           <h1 className=" text-2xl font-medium">{totalSold} Product</h1>
           <p>quantity already sold</p>
         </div>
-        <div className="p-4 rounded-lg bg-emerald-400 text-white">
+        <div className="p-4 rounded-lg bg-primary text-white">
           <h1 className=" text-2xl font-medium">${soldAmount} amount</h1>
           <p>already sold</p>
         </div>
-        <div className="p-4 rounded-lg bg-amber-500 text-white">
+        <div className="p-4 rounded-lg bg-primary text-white">
           <h1 className=" text-2xl font-medium">13% discounrt</h1>
           <p>provided for flash sale</p>
         </div>
@@ -113,7 +113,7 @@ const SellerDashboard = () => {
           <PieChart></PieChart>
         </div>
       ) : (
-        <p className="text-xl font-semibold text-red-500">
+        <p className="text-xl font-semibold text-primary">
           No Product Added Yet
         </p>
       )}

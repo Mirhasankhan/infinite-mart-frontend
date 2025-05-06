@@ -68,7 +68,7 @@ const CartModal = ({ isOpen, setIsOpen }: CartProps) => {
                           <h1>{cart.cartQuantity}</h1>
                           <button
                             onClick={() => handleUpdateQuantity(cart, true)}
-                            className="bg-orange-400 rounded-full px-2"
+                            className="bg-primary rounded-full px-2"
                           >
                             +
                           </button>
@@ -96,7 +96,7 @@ const CartModal = ({ isOpen, setIsOpen }: CartProps) => {
                     <Button buttonName="Checkout"></Button>
                   </Link>
                   <Link onClick={() => setIsOpen(false)} to="/cart">
-                    <button className="relative px-6 py-2 overflow-hidden bg-[#3975c3] text-white  mt-2  rounded-lg group">
+                    <button className="relative px-6 py-2 overflow-hidden bg-primary text-white  mt-2  rounded-lg group">
                       <span className="relative z-10">View Cart</span>
                       <span className="absolute inset-0 bg-black transform scale-x-0 origin-left transition-transform duration-1000 group-hover:scale-x-100"></span>
                     </button>

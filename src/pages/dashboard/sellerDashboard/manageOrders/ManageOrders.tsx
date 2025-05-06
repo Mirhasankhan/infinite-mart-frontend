@@ -23,7 +23,7 @@ const ManageOrders = () => {
         {data?.data.length > 0 ? (
           <div className="overflow-x-auto">
             <table className="table mt-6">
-              <thead className="bg-cyan-500 text-white">
+              <thead className="bg-primary text-white">
                 <tr>
                   <th>Product Detail</th>
                   <th>Delivery Address</th>
@@ -75,7 +75,7 @@ const ManageOrders = () => {
                     <th>
                       <Button
                         onClick={() => updateStatus(order._id)}
-                        className="bg-green-400 text-white font-medium"
+                        className="bg-primary text-white font-medium"
                         disabled={order.status == "delivered"}
                       >
                         {order.status == "delivered"
@@ -95,7 +95,7 @@ const ManageOrders = () => {
               <h1>You have no order for proceed</h1>
             </div>
             <Link to={"/"}>
-              <Button className="bg-green-400">Browse Products</Button>
+              <Button className="bg-primary">Browse Products</Button>
             </Link>
           </div>
         )}

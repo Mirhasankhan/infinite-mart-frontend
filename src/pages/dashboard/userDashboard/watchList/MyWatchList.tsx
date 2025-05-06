@@ -50,13 +50,13 @@ const MyWatchList = () => {
                   </div>
                 </div>
                 <div className="col-span-1 flex justify-between items-center">
-                  <h1 className="text-red-500 text-xl">${list.price}</h1>
+                  <h1 className="text-primary text-xl">${list.price}</h1>
                   <button
                     onClick={() => {
                       handleAddToCart(list);
                       handleDeleteWishlist(list._id);
                     }}
-                    className="bg-green-400 rounded-md font-medium px-3 py-2 text-white"
+                    className="bg-primary rounded-md font-medium px-3 py-2 text-white"
                   >
                     Add To Cart
                   </button>
@@ -71,7 +71,7 @@ const MyWatchList = () => {
               <h1>No Product have been added in wishlist</h1>
             </div>
             <Link to={"/"}>
-              <Button className="bg-green-400 text-white font-medium mt-2">
+              <Button className="bg-primary text-white font-medium mt-2">
                 Browse Products
               </Button>
             </Link>

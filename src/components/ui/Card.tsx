@@ -29,12 +29,7 @@ const Card = ({ product }: { product: TProduct }) => {
             ? productName.substring(0, 26) + "..."
             : productName}
         </h1>
-        <div className="px-3 py-3 flex-grow flex flex-col justify-between">
-          {/* {discountPercentage && (
-            <p className="text-red-500 font-medium">
-              ${+price - (+price / 100) * discountPercentage}
-            </p>
-          )} */}
+        <div className="px-3 py-3 flex-grow flex flex-col justify-between">          
           <div className="flex justify-between">
             <div className="flex gap-1 items-center text-gray-600">
               <p>${price}</p>
@@ -44,7 +39,7 @@ const Card = ({ product }: { product: TProduct }) => {
                 </p>
               )}
             </div>
-            <h1 className="hidden md:block border rounded-lg px-2 py-1 text-sm hover:bg-[#3975c3]  hover:text-white">
+            <h1 className="hidden md:block border rounded-lg px-2 py-1 text-sm hover:bg-primary  hover:text-white">
               {category}
             </h1>
           </div>
@@ -57,13 +52,13 @@ const Card = ({ product }: { product: TProduct }) => {
       <div className="absolute top-3 right-3 opacity-0 transform scale-0 group-hover:opacity-100 group-hover:scale-100 transition-transform duration-500">
         <div
           onClick={() => handleAddToWishlist(product)}
-          className="cursor-pointer bg-white p-2 text-xl rounded-full mb-2 border hover:bg-[#3975c3]  hover:text-white"
+          className="cursor-pointer hover:bg-white p-2 text-xl rounded-full mb-2 border bg-primary hover:text-primary border-primary font-medium text-white"
         >
-          <CiHeart className="font-medium" title="Add to wishlist" />
+          <CiHeart  title="Add to wishlist" />
         </div>
         <div
           onClick={() => handleAddToCart(product)}
-          className="bg-white cursor-pointer text-xl p-2 border rounded-full hover:bg-[#3975c3]  hover:text-white"
+        className="cursor-pointer hover:bg-white p-2 text-xl rounded-full mb-2 border bg-primary hover:text-primary border-primary font-medium text-white"
         >
           <CiShoppingCart className="font-medium" title="Add to cart" />
         </div>

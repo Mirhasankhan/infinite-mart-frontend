@@ -1,5 +1,5 @@
 import { FieldValues, SubmitHandler } from "react-hook-form";
-import { Button, Col, Row } from "antd";
+import { Col, Row } from "antd";
 import { Link, useNavigate } from "react-router-dom";
 import CustomForm from "../../components/form/CustomForm";
 import CustomInput from "../../components/form/CustomInput";
@@ -10,13 +10,17 @@ import { toast } from "sonner";
 import loginImage from "../../assets/images/login.png";
 import SocialLogin from "../../components/ui/SocialLogin";
 import { FcGoogle } from "react-icons/fc";
+import { useState } from "react";
+import { AiOutlineLoading3Quarters } from "react-icons/ai";
 
 const Login = () => {
+  const [isLoading, setIsLoading] = useState(false);
   const [loginAccount] = useLoginMutation();
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
   const onSubmit: SubmitHandler<FieldValues> = async (data) => {
+    setIsLoading(true);
     const res = await loginAccount(data).unwrap();
 
     if (res.success) {
@@ -30,15 +34,17 @@ const Login = () => {
         })
       );
       navigate("/");
+      setIsLoading(false);
     } else {
       console.log("error");
+      setIsLoading(false);
     }
   };
 
   return (
     <div className="pb-8 min-h-screen bg-gray-100">
       <h1 className="text-xl md:text-3xl font-semibold text-center py-4 my-6">
-        Log Into <span className="text-orange-400">Your Account</span>
+        Log Into <span className="text-primary">Your Account</span>
       </h1>
       <div className="grid grid-cols-1 md:grid-cols-2 w-full px-3 md:w-2/3 2xl:w-1/2 mx-auto">
         <div className="rounded-l-lg bg-white p-6  w-full border">
@@ -65,16 +71,19 @@ const Login = () => {
                     />
                   </Col>
                 </Row>
-                <Link to="">
-                  <h1 className="pb-2 text-red-600">Forgot Password?</h1>
-                </Link>
-
-                <Button
-                  className="w-full bg-orange-400 font-semibold text-white"
-                  htmlType="submit"
+                <button
+                  className="w-full bg-primary rounded-md py-2 font-semibold text-white"
+                  type="submit"
                 >
-                  Login
-                </Button>
+                  {isLoading ? (
+                    <AiOutlineLoading3Quarters
+                      size={20}
+                      className="animate-spin font-medium mx-auto"
+                    />
+                  ) : (
+                    "Login"
+                  )}
+                </button>
                 <h1 className="pb-6 pt-2">
                   Don't have an account?
                   <Link to="/register" className="text-blue-600">

@@ -29,8 +29,8 @@ const Details = ({ product }: { product: TProduct }) => {
           readOnly
         />
         <p>({reviews.length} reviews)</p>
-        {sold > 0 && <GiCelebrationFire className="text-red-500" />}
-        {sold > 0 && <h1 className="text-red-500">{sold} products sold</h1>}
+        {sold > 0 && <GiCelebrationFire className="text-primary" />}
+        {sold > 0 && <h1 className="text-primary">{sold} products sold</h1>}
       </div>
       <div className="py-4">
         <p className="text-4xl font-semibold pb-4">${price}.00</p>
@@ -69,7 +69,7 @@ const Details = ({ product }: { product: TProduct }) => {
         </button>
         <button
           onClick={() => handleAddToWishlist(product)}
-          className="!bg-orange-400 custom-button"
+          className="border-primary border p-2 hover:bg-primary hover:text-white text-primary bg-transparent rounded-md font-medium"
         >
           Add To Wishlist
         </button>

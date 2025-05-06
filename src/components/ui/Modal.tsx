@@ -107,7 +107,7 @@ const Modal = ({ selectedProduct }: { selectedProduct: TProduct | null }) => {
               ></textarea>
             </div>
             <Button
-              className="w-full mt-6 bg-green-400 text-white font-medium"
+              className="w-full mt-6 bg-primary text-white font-medium"
               onClick={() => {
                 handleAddReview(selectedProduct.productId);
                 closeModal();

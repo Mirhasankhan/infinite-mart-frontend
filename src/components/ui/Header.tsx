@@ -24,7 +24,7 @@ const Header = () => {
         <div className="flex gap-6">
           <h1>Welcome to Infinite Mart</h1>
           <div className="flex items-center gap-1">
-            <FaPhoneAlt className="text-green-500 text-xl"></FaPhoneAlt>
+            <FaPhoneAlt className="text-primary text-xl"></FaPhoneAlt>
             <div>
               <WhatsAppLink
                 phoneNumber={"+8801678506798"}
@@ -59,7 +59,7 @@ const Header = () => {
             onClick={() => console.log("hello")}
             className="absolute right-3 top-3 border-l-2 pl-2 cursor-pointer"
           >
-            <CiSearch className="text-2xl hover:text-green-400" />
+            <CiSearch className="text-2xl hover:text-primary" />
           </div>
         </div>
         <ManageUser></ManageUser>

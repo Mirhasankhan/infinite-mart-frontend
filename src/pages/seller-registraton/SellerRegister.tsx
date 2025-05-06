@@ -31,7 +31,7 @@ const SellerRegister = () => {
   return (
     <div className="pb-8 bg-gray-100 px-3 md:px-48">
       <h1 className="text-xl md:text-3xl font-semibold text-center py-4">
-        Become <span className="text-orange-400">Seller</span>
+        Become <span className="text-primary">Seller</span>
       </h1>
       <div className="grid grid-cols-5 gap-16">
         <div className="shadow-xl col-span-5 md:col-span-3 border rounded-lg bg-white p-4  mt-6">
@@ -70,7 +70,7 @@ const SellerRegister = () => {
                 </Row>
 
                 <Button
-                  className="w-full bg-orange-400 text-white  font-semibold"
+                  className="w-full bg-primary text-white  font-semibold"
                   htmlType="submit"
                 >
                   Create Seller Account

@@ -138,7 +138,7 @@ const UploadImage = () => {
               </Row>
               {fileChosen && (
                 <Button
-                  className="w-full bg-green-400 text-white font-semibold"
+                  className="w-full bg-primary text-white font-semibold"
                   htmlType="submit"
                 >
                   Upload Image

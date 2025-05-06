@@ -26,7 +26,7 @@ const MyOrders = () => {
         {data?.data.length > 0 ? (
           <div className="overflow-x-auto">
             <table className="table mt-6">
-              <thead className="bg-cyan-500 text-white">
+              <thead className="bg-primary text-white">
                 <tr>
                   <th>Product Detail</th>
                   <th>Seller Detail</th>
@@ -72,7 +72,7 @@ const MyOrders = () => {
                     </th>
                     <th>
                       <Button
-                        className="bg-green-400 text-white"
+                        className="bg-primary text-white"
                         onClick={() => openModal(order)}
                         disabled={order.status == "processing"}
                       >
@@ -92,7 +92,7 @@ const MyOrders = () => {
               <h1>You have no order for proceed</h1>
             </div>
             <Link to={"/"}>
-              <Button className="bg-green-400">Browse Products</Button>
+              <Button className="bg-primary">Browse Products</Button>
             </Link>
           </div>
         )}

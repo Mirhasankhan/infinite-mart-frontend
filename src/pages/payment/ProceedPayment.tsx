@@ -38,7 +38,7 @@ const ProceedPayment = () => {
     <div className="px-3 md:px-14 py-6 bg-gray-100">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         <div className="bg-white h-80 p-5 rounded-md">
-          <h1 className="text-xl md:text-2xl font-medium py-4 underline text-green-400">
+          <h1 className="text-xl md:text-2xl font-medium py-4 underline text-primary">
             Billing Details
           </h1>
           <div>

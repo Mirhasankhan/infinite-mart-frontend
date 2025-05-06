@@ -35,7 +35,7 @@ const FlashSale = () => {
         </div>
         {!isFlashSalePage && (
           <Link to="/flash-sale">
-            {/* <button className="custom-button">See More</button> */}
+          
             <Button buttonName="See More"></Button>
           </Link>
         )}

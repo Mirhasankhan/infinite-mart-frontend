@@ -28,7 +28,7 @@ const ManageUser = () => {
       {email ? (
         <div className="flex items-center gap-2 hover:bg-gray-300 p-1 px-2 rounded-md">
           <div>
-            <FaUser className="text-green-400 text-xl"></FaUser>
+            <FaUser className="text-primary text-xl"></FaUser>
           </div>
           <div className="cursor-pointer" onClick={() => setOpen(!open)}>
             <h1 className="text-sm">
@@ -46,7 +46,7 @@ const ManageUser = () => {
                 className="flex gap-2 items-center text-gray-700"
               >
                 <MdOutlineManageAccounts className="text-2xl" />
-                <h1 className="hover:underline hover:text-red-500">
+                <h1 className="hover:underline hover:text-primary">
                   Manage My Account
                 </h1>
               </Link>
@@ -55,7 +55,7 @@ const ManageUser = () => {
                 className="flex gap-2 items-center text-gray-700 md:my-3 my-1"
               >
                 <MdDashboard className="text-2xl" />
-                <h1 className="hover:underline hover:text-red-500">
+                <h1 className="hover:underline hover:text-primary">
                   Dashboard
                 </h1>
               </Link>
@@ -64,7 +64,7 @@ const ManageUser = () => {
                 className="flex gap-2 items-center text-gray-700 md:my-3 my-1"
               >
                 <CiCircleList className="text-2xl" />
-                <h1 className="hover:underline hover:text-red-500">
+                <h1 className="hover:underline hover:text-primary">
                   My Wishlist
                 </h1>
               </Link>
@@ -94,7 +94,7 @@ const ManageUser = () => {
           </Link>
         </div>
       )}
-      <div className="flex items-center gap-6 bg-[#3975c3] px-3 relative rounded-md">
+      <div className="flex items-center gap-6 bg-primary px-3 relative rounded-md">
         <h1 className="bg-orange-200 rounded-full px-1 absolute top-1 right-16">
           {cartData?.data?.length}
         </h1>

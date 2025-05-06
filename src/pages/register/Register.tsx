@@ -1,5 +1,5 @@
 import { FieldValues, SubmitHandler } from "react-hook-form";
-import { Button, Col, Row } from "antd";
+import { Col, Row } from "antd";
 import { Link, useNavigate } from "react-router-dom";
 import CustomForm from "../../components/form/CustomForm";
 import CustomInput from "../../components/form/CustomInput";
@@ -9,30 +9,36 @@ import { useRegisterMutation } from "../../redux/features/auth/authApi";
 import { toast } from "sonner";
 import { FcGoogle } from "react-icons/fc";
 import SocialLogin from "../../components/ui/SocialLogin";
+import { AiOutlineLoading3Quarters } from "react-icons/ai";
+import { useState } from "react";
 // import SocialLogin from "../../components/ui/SocialLogin";
 
 const Register = () => {
+  const [isLoading, setIsLoading] = useState(false);
   const [registerAccount] = useRegisterMutation();
   const navigate = useNavigate();
 
   const onSubmit: SubmitHandler<FieldValues> = async (data) => {
+    setIsLoading(true);
     const newAccount = {
       ...data,
       isSeller: false,
     };
     const res = await registerAccount(newAccount);
     if (res.data.success) {
+      setIsLoading(false);
       toast.success("account created successfully");
       navigate("/login");
     } else {
       toast.error("something went wrong");
+      setIsLoading(false);
     }
   };
 
   return (
     <div className="pb-16 min-h-screen bg-gray-100">
       <h1 className="text-xl md:text-3xl font-semibold text-center py-4 ">
-        Create <span className="text-orange-400">New Account</span>
+        Create <span className="text-primary">New Account</span>
       </h1>
       <div className="grid grid-cols-1 md:grid-cols-2 w-full px-3 md:w-2/3 2xl:w-1/2 mx-auto">
         <div className="rounded-l-md p-4 bg-white">
@@ -70,12 +76,19 @@ const Register = () => {
                   </Col>
                 </Row>
 
-                <Button
-                  className="w-full bg-orange-400 text-white  font-semibold"
-                  htmlType="submit"
+                <button
+                  className="w-full bg-primary rounded-md py-2 font-semibold text-white"
+                  type="submit"
                 >
-                  Create Account
-                </Button>
+                  {isLoading ? (
+                    <AiOutlineLoading3Quarters
+                      size={20}
+                      className="animate-spin font-medium mx-auto"
+                    />
+                  ) : (
+                    "Create Account"
+                  )}
+                </button>
                 <h1 className="pt-3">
                   Already have an account?{" "}
                   <Link to="/login" className="text-blue-600">

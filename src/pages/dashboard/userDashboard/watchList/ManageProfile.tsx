@@ -74,7 +74,7 @@ const ManageProfile = () => {
     <div>
       <h1 className="text-2xl font-medium pb-6 text-center">My Profile</h1>
       <div className="md:grid grid-cols-5 gap-4">
-        <div className="col-span-1 h-60 bg-cyan-500 p-2 rounded-md ">
+        <div className="col-span-1 h-60 bg-primary p-2 rounded-md ">
           {/* <img className="w-24 h-24 rounded-full" src={profileImage} alt="" /> */}
           <div>
             <UploadImage></UploadImage>
@@ -143,7 +143,7 @@ const ManageProfile = () => {
                 </Row>
 
                 <Button
-                  className="w-full bg-orange-400 text-white font-semibold"
+                  className="w-full bg-primary text-white font-semibold"
                   htmlType="submit"
                 >
                   Update Profile Info
