@@ -38,7 +38,7 @@ const Login = () => {
   return (
     <div className="pb-8 min-h-screen bg-gray-100">
       <h1 className="text-xl md:text-3xl font-semibold text-center py-4 my-6">
-        Log Into <span className="text-orange-400">YourAccount</span>
+        Log Into <span className="text-orange-400">Your Account</span>
       </h1>
       <div className="grid grid-cols-1 md:grid-cols-2 w-full px-3 md:w-2/3 2xl:w-1/2 mx-auto">
         <div className="rounded-l-lg bg-white p-6  w-full border">
