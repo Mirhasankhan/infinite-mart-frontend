@@ -7,7 +7,7 @@ import { useAppDispatch } from "../../redux/hooks";
 import { useLoginMutation } from "../../redux/features/auth/authApi";
 import { setUser } from "../../redux/features/auth/authSlice";
 import { toast } from "sonner";
-import loginImage from "../../assets/images/login.png";
+import loginImage from "../../assets/images/Previews.png";
 import SocialLogin from "../../components/ui/SocialLogin";
 import { FcGoogle } from "react-icons/fc";
 import { useState } from "react";

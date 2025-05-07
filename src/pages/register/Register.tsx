@@ -3,7 +3,7 @@ import { Col, Row } from "antd";
 import { Link, useNavigate } from "react-router-dom";
 import CustomForm from "../../components/form/CustomForm";
 import CustomInput from "../../components/form/CustomInput";
-import singImage from "../../assets/images/sign.png";
+import singImage from "../../assets/images/Previews (1).png";
 // import { FcGoogle } from "react-icons/fc";
 import { useRegisterMutation } from "../../redux/features/auth/authApi";
 import { toast } from "sonner";
