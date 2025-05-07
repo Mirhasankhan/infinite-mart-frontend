@@ -96,10 +96,7 @@ const CartModal = ({ isOpen, setIsOpen }: CartProps) => {
                     <Button buttonName="Checkout"></Button>
                   </Link>
                   <Link onClick={() => setIsOpen(false)} to="/cart">
-                    <button className="relative px-6 py-2 overflow-hidden bg-primary text-white  mt-2  rounded-lg group">
-                      <span className="relative z-10">View Cart</span>
-                      <span className="absolute inset-0 bg-black transform scale-x-0 origin-left transition-transform duration-1000 group-hover:scale-x-100"></span>
-                    </button>
+                    <Button buttonName="View Cart"></Button>
                   </Link>
                 </div>
               </div>

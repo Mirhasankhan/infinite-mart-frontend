@@ -2,17 +2,75 @@ import { TProduct } from "../../types/product.type";
 import { Rating } from "@smastrom/react-rating";
 import "@smastrom/react-rating/style.css";
 import { useState } from "react";
+import reviewImage from "../../assets/images/pro.webp";
 
 const ProductDescriptions = ({ product }: { product: TProduct }) => {
-  const [active, setActive] = useState("description");
+  const [active, setActive] = useState("review");
   return (
     <div>
-      <div className="flex justify-between gap-8 my-12">
-        <button onClick={()=>setActive("description")} className={`${active =="description"? "bg-primary text-white" : "text-primary bg-transparent"} py-3 border-primary hover:bg-primary hover:text-white font-medium border w-full rounded-md`}>Description</button>
-        <button onClick={()=>setActive("policy")} className={`${active =="policy"? "bg-primary text-white" : "text-primary bg-transparent"} py-3 border-primary hover:bg-primary hover:text-white font-medium border w-full rounded-md`}>Return Policy</button>
-        <button onClick={()=>setActive("review")} className={`${active =="review"? "bg-primary text-white" : "text-primary bg-transparent"} py-3 border-primary hover:bg-primary hover:text-white font-medium border w-full rounded-md`}>Reviews</button>
+      <div className="flex justify-between gap-3 md:gap-8 my-12 md:mx-16">
+        <button
+          onClick={() => setActive("review")}
+          className={`${
+            active == "review"
+              ? "bg-primary text-white"
+              : "text-primary bg-transparent"
+          } py-3 border-primary hover:bg-primary hover:text-white font-medium border w-full rounded-md`}
+        >
+          Reviews
+        </button>
+        <button
+          onClick={() => setActive("description")}
+          className={`${
+            active == "description"
+              ? "bg-primary text-white"
+              : "text-primary bg-transparent"
+          } py-3 border-primary hover:bg-primary hover:text-white font-medium border w-full rounded-md`}
+        >
+          Description
+        </button>
+        <button
+          onClick={() => setActive("policy")}
+          className={`${
+            active == "policy"
+              ? "bg-primary text-white"
+              : "text-primary bg-transparent"
+          } py-3 border-primary hover:bg-primary hover:text-white font-medium border w-full rounded-md`}
+        >
+          Return Policy
+        </button>
       </div>
       <div>
+        {active == "review" && (
+          <div>
+            {product?.reviews?.length > 0 ? (
+              <div className="grid grid-cols-3 gap-8">
+                {product?.reviews?.map((review, index) => (
+                  <div className="shadow-[0px_4px_15px_rgba(255,69,58,0.15)] p-4 rounded-md my-3" key={index}>
+                    <div className="flex items-center gap-3">
+                      <img className="h-16 w-16" src={reviewImage} alt="" />
+
+                      <div>
+                        <h1 className="font-semibold pb-1 ">{review.username}</h1>
+                        <Rating                        
+                          style={{ maxWidth: 100 }}                         
+                          value={review.rating}
+                          readOnly
+                        />
+                      </div>
+                    </div>
+
+                    <p className="pt-2">{review.review} Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa architecto, eligendi dolorem amet dolorum itaque reiciendis excepturi atque reprehenderit natus.</p>
+                  </div>
+                ))}
+              </div>
+            ) : (
+              <h1 className="text-red-600">
+                There is no review for this product yet
+              </h1>
+            )}
+          </div>
+        )}
         {active == "description" && (
           <div>
             <div dangerouslySetInnerHTML={{ __html: product.content }} />
@@ -52,37 +110,6 @@ const ProductDescriptions = ({ product }: { product: TProduct }) => {
                 picture (i.e product not as advertised)
               </li>
             </ul>
-          </div>
-        )}
-        {active == "review" && (
-          <div>
-            {product?.reviews?.length > 0 ? (
-              <div>
-                {product?.reviews?.map((review, index) => (
-                  <div className="border p-2 rounded-md my-3" key={index}>
-                    <h1 className=" font-medium">
-                      Review By: {review.username}
-                    </h1>
-                    <div className="flex items-center gap-3">
-                      <p>Rating: </p>
-                      <Rating
-                        className="mt-auto"
-                        style={{ maxWidth: 80 }}
-                        // value={Math.round(testi.rating)}
-                        value={review.rating}
-                        readOnly
-                      />
-                    </div>
-
-                    <p>Review: {review.review}</p>
-                  </div>
-                ))}
-              </div>
-            ) : (
-              <h1 className="text-red-600">
-                There is no review for this product yet
-              </h1>
-            )}
           </div>
         )}
       </div>

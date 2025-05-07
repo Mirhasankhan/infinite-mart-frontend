@@ -34,7 +34,7 @@ const ProductDetails = () => {
   const { image } = product;
 
   return (
-    <div className="px-3 md:px-16 py-6 mt-6">
+    <div className="px-3 md:px-14 2xl:px-60 py-6 mt-6">
       <div className="bg-white p-4 rounded-md">
         <div className="grid grid-cols-6 gap-6 rounded-md">
           <div className="bg-gray-100 col-span-6 md:col-span-3">
@@ -57,7 +57,7 @@ const ProductDetails = () => {
         <div className="grid grid-cols-1 md:grid-cols-1 gap-6">
           <ProductDescriptions product={product}></ProductDescriptions>
           <div>
-            <h1 className="pt-12 pb-3 text-xl font-medium">Related Products</h1>
+            <h1 className="pt-12 pb-3 text-2xl font-semibold">Related Products</h1>
             <div className="grid grid-cols-4 gap-4">
               {categoryData?.data.map((category: TProduct) => (
                 <Card product={category}></Card>

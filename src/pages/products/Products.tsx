@@ -58,7 +58,7 @@ const Products = () => {
       <div className=" rounded-md bg-primary">
         <Categories></Categories>
       </div>
-      <div className="my-8 px-3 md:px-14">
+      <div className="my-8 px-3 md:px-14 2xl:px-60">
         {loading ? (
           <div className="flex items-center justify-center">
             <Lottie
