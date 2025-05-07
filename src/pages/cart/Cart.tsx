@@ -38,7 +38,7 @@ const Cart = () => {
         {cartData?.data?.length > 0 ? (
           <div className="bg-white p-2 rounded-md">
             {cartData?.data?.map((cart: TCart) => (
-              <div key={cart._id} className="grid grid-cols-5 border-b py-3">
+              <div key={cart._id} className="grid grid-cols-5 border-b mb-3 py-3">
                 <div className="mb-4 col-span-2">
                   <div className="flex gap-4 items-center">
                     <img
@@ -93,8 +93,8 @@ const Cart = () => {
           </div>
         )}
       </div>
-      <div className="col-span-4 md:col-span-1 h-80 mt-9">
-        <div className="bg-white rounded-md max-h-80 p-3">
+      <div className="col-span-4 md:col-span-1 bg-white min-h-80 p-3 mt-9">
+        <div className=" rounded-md min-h-80">
           <h1 className="text-xl pb-3 font-medium">Cart Totals</h1>
           <div className="flex justify-between">
             <h1>Subtotal</h1>
@@ -112,7 +112,7 @@ const Cart = () => {
           </div>
         </div>
         <Link to="/checkout">
-          <Button  buttonName="Proceed To Checkout"></Button>
+          <Button buttonName="Proceed To Checkout"></Button>
         </Link>
       </div>
     </div>

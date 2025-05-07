@@ -27,8 +27,8 @@ const Header = () => {
             <FaPhoneAlt className="text-primary text-xl"></FaPhoneAlt>
             <div>
               <WhatsAppLink
-                phoneNumber={"+8801678506798"}
-                text="Helpline: 01678506798"
+                phoneNumber={"+8801839033505"}
+                text="Helpline: +880-1839033505"
               />
             </div>
           </div>
