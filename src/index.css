@@ -3,12 +3,17 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+  color-scheme: light;
+}
+
 body {
   font-family: "Nunito", sans-serif;
   background-color: white;
+  color: #000000;
   color-scheme: light;
 }
 
 .custom-button {
-  @apply border bg-primary font-medium   text-white px-2 md:px-6 md:py-2 py-1 rounded-md;
+  @apply border bg-primary font-medium text-white px-2 md:px-6 md:py-2 py-1 rounded-md;
 }
