@@ -42,18 +42,33 @@ const CountdownTimer: React.FC<CountdownTimerProps> = ({ targetDate }) => {
   }, [targetDate]);
 
   return (
-    <div>
-      <span className="bg-primary p-1 text-white rounded-md">
-        {String(timeLeft.hours).padStart(2, "0")}
-      </span>
-      :
-      <span className="bg-primary p-1 text-white rounded-md">
-        {String(timeLeft.minutes).padStart(2, "0")}
-      </span>
-      :
-      <span className="bg-primary p-1 text-white rounded-md">
-        {String(timeLeft.seconds).padStart(2, "0")}
-      </span>
+    <div className="flex items-center gap-1.5 md:gap-2">
+      <div className="flex flex-col items-center">
+        <span className="min-w-[32px] md:min-w-[36px] text-center font-mono font-bold text-xs md:text-sm bg-gray-900 text-white py-1 px-1.5 rounded-lg shadow-sm">
+          {String(timeLeft.hours).padStart(2, "0")}
+        </span>
+        <span className="text-[9px] font-semibold tracking-wider text-gray-400 uppercase mt-0.5">
+          Hrs
+        </span>
+      </div>
+      <span className="font-bold text-gray-500 -mt-3">:</span>
+      <div className="flex flex-col items-center">
+        <span className="min-w-[32px] md:min-w-[36px] text-center font-mono font-bold text-xs md:text-sm bg-gray-900 text-white py-1 px-1.5 rounded-lg shadow-sm">
+          {String(timeLeft.minutes).padStart(2, "0")}
+        </span>
+        <span className="text-[9px] font-semibold tracking-wider text-gray-400 uppercase mt-0.5">
+          Mins
+        </span>
+      </div>
+      <span className="font-bold text-gray-500 -mt-3">:</span>
+      <div className="flex flex-col items-center">
+        <span className="min-w-[32px] md:min-w-[36px] text-center font-mono font-bold text-xs md:text-sm bg-rose-600 text-white py-1 px-1.5 rounded-lg shadow-sm">
+          {String(timeLeft.seconds).padStart(2, "0")}
+        </span>
+        <span className="text-[9px] font-semibold tracking-wider text-rose-500 uppercase mt-0.5">
+          Secs
+        </span>
+      </div>
     </div>
   );
 };
