@@ -18,12 +18,7 @@ export const userPaths = [
     name: "My Wishlist",
     path: "my-wishlist",
     element: <MyWatchList></MyWatchList>,
-  },
-  {
-    name: "Chats",
-    path: "chat",
-    element: "Coming Soon!!!!",
-  },
+  },  
   {
     name: "Manage Profile",
     path: "manage-profile",

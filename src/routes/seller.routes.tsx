@@ -24,12 +24,7 @@ export const sellerPaths = [
     name: "Manage Orders",
     path: "manage-orders",
     element: <ManageOrders></ManageOrders>,
-  },
-  {
-    name: "Chats",
-    path: "chat",
-    element: "Coming Soon!!!!",
-  },
+  }, 
   {
     name: "Manage Profile",
     path: "manage-profile",
